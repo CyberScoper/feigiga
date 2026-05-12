@@ -1,0 +1,40 @@
+{
+  "code": "B-FYZ1",
+  "name_sk": "Fyzika 1",
+  "name_en": "Physics 1",
+  "icon": "🧲",
+  "semester": "Letný (1. ročník Bc.)",
+  "lecturer": "RNDr. Juraj Chlpík, PhD. (LS 2026)",
+  "guarantor": "prof. RNDr. Július Cirák, CSc.",
+  "format": "Prednáška + cvičenie + laboratórne práce",
+  "grading": {
+    "split": "16 (laboratóriá) + 30 (kontrolky K1+K2, 15 každá) + 54 (skúška)",
+    "min_admit": "25 bodov zo semestra (laby + kontrolky)",
+    "rule": "Bez 25 bodov nedostaneš zápočet — automaticky FX bez ohľadu na skúšku."
+  },
+  "key_dates_2026": [
+    { "label": "Kontrolka K1 — kinematika a dynamika hmotného bodu", "date": "2026-03-20", "weight": "15 b" },
+    { "label": "Kontrolka K2 — tuhé teleso, kmitanie, hydrostatika",  "date": "2026-05-08", "weight": "15 b" }
+  ],
+  "topics": [
+    { "n": 1, "id": "kinematika", "title": "Kinematika hmotného bodu", "summary": "Polohový vektor, rýchlosť, zrýchlenie, rovinné a krivočiare pohyby, kruhový pohyb." },
+    { "n": 2, "id": "dynamika",   "title": "Dynamika hmotného bodu",   "summary": "Newtonove zákony, sily, hybnosť, sústavy hmotných bodov, neinerciálne sústavy." },
+    { "n": 3, "id": "energia",    "title": "Práca, energia, výkon",    "summary": "Konzervatívne sily, potenciálna energia, zákon zachovania mechanickej energie." },
+    { "n": 4, "id": "tuhe",       "title": "Tuhé teleso",              "summary": "Moment sily, moment zotrvačnosti (osi rotácie), Steinerova veta, precesia." },
+    { "n": 5, "id": "kmitanie",   "title": "Kmitanie a vlnenie",       "summary": "Harmonický oscilátor, tlmené a vynútené kmity, rezonancia, vlny, Dopplerov efekt." },
+    { "n": 6, "id": "hydro",      "title": "Hydrostatika a hydrodynamika", "summary": "Tlak, Archimedov zákon, rovnica kontinuity, Bernoulli, viskozita." },
+    { "n": 7, "id": "termo",      "title": "Termodynamika (úvod)",     "summary": "Stavová rovnica ideálneho plynu, prvý a druhý termodynamický zákon." }
+  ],
+  "danger_zones": [
+    "Moment zotrvačnosti a precesia gyroskopu — geometria osí, prejdi si Steinerovu vetu cez 5 príkladov.",
+    "Tlmený oscilátor — kritické vs nadkritické tlmenie sa zamieňa.",
+    "Laboratórne protokoly — chyby merania (Gaussova kombinácia), bez nich ti laby odmietnu.",
+    "Hydrostatický tlak vs hydrodynamický (Bernoulli) — neplet si ich v zložených úlohách."
+  ],
+  "pdfs": [
+    { "title": "Sylabus Fyzika 1 (LS 2026)", "url": "https://kf.elf.stuba.sk/~chlpik/B-FYZ1/Sylabus_Fyzika1_2026LS.pdf" },
+    { "title": "Zadanie laboratória Z1", "url": "https://kf.elf.stuba.sk/~chlpik/B-FYZ1/F1_2026_LS_Z1_zadanie_web.pdf" },
+    { "title": "Archív Chlpíka (prednášky + cvičenia)", "url": "https://kf.elf.stuba.sk/~chlpik/" }
+  ],
+  "_source": "Live: kf.elf.stuba.sk/~chlpik/ + sylabus B-FYZ1 LS 2026 + interné poznámky."
+}

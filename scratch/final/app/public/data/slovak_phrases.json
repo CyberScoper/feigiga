@@ -1,0 +1,245 @@
+{
+  "_note": "Academic survival phrases for international / Erasmus students at FEI STU Bratislava. Slovak phrases and English translations are authentic. Russian translations are direct equivalents. Pronunciation is approximate English-speaker friendly; CAPS = stressed syllable.",
+  "phrases": [
+    {
+      "sk": "Dobrý deň",
+      "en": "Good day / Hello (formal)",
+      "ru": "Добрый день",
+      "uk": "Добрий день",
+      "pronunciation": "DOH-bree dyen",
+      "category": "greeting"
+    },
+    {
+      "sk": "Ahoj",
+      "en": "Hi / Bye (informal)",
+      "ru": "Привет / Пока",
+      "uk": "Привіт / Бувай",
+      "pronunciation": "AH-hoy",
+      "category": "greeting"
+    },
+    {
+      "sk": "Dovidenia",
+      "en": "Goodbye (formal)",
+      "ru": "До свидания",
+      "uk": "До побачення",
+      "pronunciation": "doh-vee-DEH-nya",
+      "category": "greeting"
+    },
+    {
+      "sk": "Ďakujem",
+      "en": "Thank you",
+      "ru": "Спасибо",
+      "uk": "Дякую",
+      "pronunciation": "DYAH-koo-yem",
+      "category": "courtesy"
+    },
+    {
+      "sk": "Prosím",
+      "en": "Please / You're welcome",
+      "ru": "Пожалуйста",
+      "uk": "Будь ласка",
+      "pronunciation": "PROH-seem",
+      "category": "courtesy"
+    },
+    {
+      "sk": "Prepáčte",
+      "en": "Excuse me / Sorry (formal)",
+      "ru": "Извините",
+      "uk": "Вибачте",
+      "pronunciation": "preh-PAACH-teh",
+      "category": "courtesy"
+    },
+    {
+      "sk": "Áno / Nie",
+      "en": "Yes / No",
+      "ru": "Да / Нет",
+      "uk": "Так / Ні",
+      "pronunciation": "AH-no / nyeh",
+      "category": "basics"
+    },
+    {
+      "sk": "Nehovorím po slovensky",
+      "en": "I don't speak Slovak",
+      "ru": "Я не говорю по-словацки",
+      "uk": "Я не розмовляю словацькою",
+      "pronunciation": "neh-HO-vo-reem po slo-VEN-ski",
+      "category": "basics"
+    },
+    {
+      "sk": "Hovoríte po anglicky?",
+      "en": "Do you speak English?",
+      "ru": "Вы говорите по-английски?",
+      "uk": "Ви розмовляєте англійською?",
+      "pronunciation": "ho-VO-ree-teh po ANG-glits-ki",
+      "category": "basics"
+    },
+    {
+      "sk": "Volám sa…",
+      "en": "My name is…",
+      "ru": "Меня зовут…",
+      "uk": "Мене звати…",
+      "pronunciation": "VOH-lahm sah",
+      "category": "basics"
+    },
+    {
+      "sk": "Som študent / študentka",
+      "en": "I am a student (m/f)",
+      "ru": "Я студент / студентка",
+      "uk": "Я студент / студентка",
+      "pronunciation": "som SHTOO-dent / shtoo-DENT-kah",
+      "category": "academic"
+    },
+    {
+      "sk": "Kde je…?",
+      "en": "Where is…?",
+      "ru": "Где находится…?",
+      "uk": "Де знаходиться…?",
+      "pronunciation": "kdeh yeh",
+      "category": "navigation"
+    },
+    {
+      "sk": "Učebňa číslo…",
+      "en": "Classroom number…",
+      "ru": "Аудитория номер…",
+      "uk": "Аудиторія номер…",
+      "pronunciation": "OO-chebnya CHEES-lo",
+      "category": "navigation"
+    },
+    {
+      "sk": "Prednáška",
+      "en": "Lecture",
+      "ru": "Лекция",
+      "uk": "Лекція",
+      "pronunciation": "PRED-naash-kah",
+      "category": "academic"
+    },
+    {
+      "sk": "Cvičenie / seminár",
+      "en": "Practical class / seminar",
+      "ru": "Практика / семинар",
+      "uk": "Практичне заняття / семінар",
+      "pronunciation": "TSVEE-chen-ye / SEH-mee-naar",
+      "category": "academic"
+    },
+    {
+      "sk": "Skúška",
+      "en": "Exam",
+      "ru": "Экзамен",
+      "uk": "Іспит",
+      "pronunciation": "SKOOSH-kah",
+      "category": "academic"
+    },
+    {
+      "sk": "Kedy je skúška?",
+      "en": "When is the exam?",
+      "ru": "Когда экзамен?",
+      "uk": "Коли іспит?",
+      "pronunciation": "KEH-di yeh SKOOSH-kah",
+      "category": "academic"
+    },
+    {
+      "sk": "Môžete to zopakovať?",
+      "en": "Can you repeat that?",
+      "ru": "Можете повторить?",
+      "uk": "Можете повторити?",
+      "pronunciation": "MOH-zheh-teh toh zoh-PAH-ko-vahty",
+      "category": "academic"
+    },
+    {
+      "sk": "Nerozumiem",
+      "en": "I don't understand",
+      "ru": "Я не понимаю",
+      "uk": "Я не розумію",
+      "pronunciation": "neh-ROH-zoo-myem",
+      "category": "academic"
+    },
+    {
+      "sk": "Profesor / docent",
+      "en": "Professor / associate professor",
+      "ru": "Профессор / доцент",
+      "uk": "Професор / доцент",
+      "pronunciation": "pro-FEH-sor / DOH-tsent",
+      "category": "academic"
+    },
+    {
+      "sk": "Pán doktor / pani doktorka",
+      "en": "Dr. (sir / madam) — address for PhD teacher",
+      "ru": "Господин доктор / госпожа доктор",
+      "uk": "Пане докторе / пані докторко",
+      "pronunciation": "paan DOK-tor / PAH-nee dok-TOR-kah",
+      "category": "academic"
+    },
+    {
+      "sk": "Knižnica",
+      "en": "Library",
+      "ru": "Библиотека",
+      "uk": "Бібліотека",
+      "pronunciation": "KNEEZH-nee-tsah",
+      "category": "campus"
+    },
+    {
+      "sk": "Jedáleň",
+      "en": "Cafeteria / canteen",
+      "ru": "Столовая",
+      "uk": "Їдальня",
+      "pronunciation": "YEH-daa-lenye",
+      "category": "campus"
+    },
+    {
+      "sk": "Internát / ŠD",
+      "en": "Dormitory",
+      "ru": "Общежитие",
+      "uk": "Гуртожиток",
+      "pronunciation": "EEN-ter-naat",
+      "category": "campus"
+    },
+    {
+      "sk": "Pedagogické oddelenie",
+      "en": "Student affairs office",
+      "ru": "Учебный отдел",
+      "uk": "Навчальний відділ",
+      "pronunciation": "peh-dah-GO-gits-keh od-DEH-lehn-yeh",
+      "category": "campus"
+    },
+    {
+      "sk": "Potvrdenie o štúdiu",
+      "en": "Proof of student status",
+      "ru": "Справка об обучении",
+      "uk": "Довідка про навчання",
+      "pronunciation": "pot-VRR-de-nye o SHTOO-dyoo",
+      "category": "academic"
+    },
+    {
+      "sk": "Koľko to stojí?",
+      "en": "How much does it cost?",
+      "ru": "Сколько это стоит?",
+      "uk": "Скільки це коштує?",
+      "pronunciation": "KOLY-ko toh STO-yee",
+      "category": "everyday"
+    },
+    {
+      "sk": "Jeden lístok, prosím",
+      "en": "One ticket, please",
+      "ru": "Один билет, пожалуйста",
+      "uk": "Один квиток, будь ласка",
+      "pronunciation": "YEH-den LEES-tok PROH-seem",
+      "category": "everyday"
+    },
+    {
+      "sk": "Kde je zastávka?",
+      "en": "Where is the bus / tram stop?",
+      "ru": "Где остановка?",
+      "uk": "Де зупинка?",
+      "pronunciation": "kdeh yeh ZAH-staav-kah",
+      "category": "navigation"
+    },
+    {
+      "sk": "Pomoc!",
+      "en": "Help!",
+      "ru": "Помогите!",
+      "uk": "Допоможіть!",
+      "pronunciation": "POH-mots",
+      "category": "emergency"
+    }
+  ]
+}

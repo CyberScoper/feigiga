@@ -1,0 +1,11 @@
+{
+  "name": "onboarding-quest",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot server.ts",
+    "start": "bun run server.ts"
+  },
+  "dependencies": {
+    "hono": "^4.6.0"
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "_note": "Synthesized example data for FEI STU Bratislava (Ilkovičova 3). Section names (Ubytovanie, Šport, FEIstival, Pedagogické oddelenie, knižnica, bazén, poradenské centrum) verified live from www.fei.stuba.sk. Phone numbers, email aliases, room numbers and exact map coordinates are PLAUSIBLE PLACEHOLDERS, not authoritative. Always confirm with Pedagogické oddelenie before relying on them.",
+  "_source": {
+    "verified_live": [
+      "https://www.fei.stuba.sk/",
+      "https://www.fei.stuba.sk/sk/studenti.html",
+      "https://www.fei.stuba.sk/sk/zivot-na-fei.html",
+      "https://is.stuba.sk/"
+    ],
+    "fetched_at": "2026-05-12",
+    "address": "Fakulta elektrotechniky a informatiky STU, Ilkovičova 3, 812 19 Bratislava, Slovensko"
+  },
+  "campus_points": [
+    {
+      "id": "main-entrance",
+      "name_sk": "Hlavný vstup",
+      "name_en": "Main entrance",
+      "icon": "🚪",
+      "x": 50,
+      "y": 92,
+      "description": "Hlavný vchod z Ilkovičovej ulice. Otáčacie dvere, vrátnica vpravo, infotabule s rozvrhom prednášok pri vstupe.",
+      "tips": [
+        "Vrátnica pomôže, ak si zabudol ISIC alebo sa stratíš",
+        "Pri vchode visí orientačná tabuľa s číslami blokov A/B/C",
+        "Otvorené Po–Pi 6:00–22:00, cez víkend len pre zamestnancov"
+      ]
+    },
+    {
+      "id": "aula",
+      "name_sk": "Aula Aurela Stodolu",
+      "name_en": "Aula (main lecture hall)",
+      "icon": "🎓",
+      "x": 30,
+      "y": 78,
+      "description": "Najväčšia prednášková sála – sem chodia úvodné prednášky 1. ročníka aj imatrikulácie a FEIstival.",
+      "tips": [
+        "Príď 10 min skôr, sedí sa od dolných radov",
+        "Wi-Fi eduroam funguje, ale prijímač je slabší vzadu hore",
+        "Tu prebieha aj imatrikulácia začiatkom októbra"
+      ]
+    },
+    {
+      "id": "kniznica",
+      "name_sk": "Akademická knižnica",
+      "name_en": "Academic library",
+      "icon": "📚",
+      "x": 72,
+      "y": 30,
+      "description": "Centrálna knižnica STU pre FEI – učebnice, skriptá, tiché študijné miesta, tlač a skenovanie.",
+      "tips": [
+        "Registrácia cez ISIC – stačí prísť osobne raz",
+        "Skriptá k povinným predmetom si rezervuj v prvý týždeň, rýchlo miznú",
+        "Tiché poschodie (3.) je zlato pred skúškami"
+      ]
+    },
+    {
+      "id": "jedalen",
+      "name_sk": "Jedáleň ŠDaJ",
+      "name_en": "Student cafeteria",
+      "icon": "🍽️",
+      "x": 18,
+      "y": 60,
+      "description": "Hlavná študentská jedáleň – obed cca 2–3 € s ISIC dotáciou, výber 4–6 jedál.",
+      "tips": [
+        "Najmenšie rady 11:00–11:30 a po 13:00",
+        "Dobíjanie kreditu na ISIC pri pokladni alebo cez web stravovanie.stuba.sk",
+        "Vegetariánske menu býva každý deň, vegan len niekedy"
+      ]
+    },
+    {
+      "id": "bufet",
+      "name_sk": "Bufet",
+      "name_en": "Snack bar",
+      "icon": "🥪",
+      "x": 60,
+      "y": 70,
+      "description": "Rýchle občerstvenie medzi prednáškami – káva, bagety, polievky, sladké.",
+      "tips": [
+        "Káva 1,20 €, espresso slušné",
+        "Bagety vypredané do 13:00",
+        "Hotovosť aj karta"
+      ]
+    },
+    {
+      "id": "dekanat",
+      "name_sk": "Dekanát",
+      "name_en": "Dean's office",
+      "icon": "🏛️",
+      "x": 50,
+      "y": 22,
+      "description": "Vedenie fakulty – dekan, prodekani. Sem chodíš výnimočne (žiadosti, oficiálne sťažnosti).",
+      "tips": [
+        "Bežné otázky najprv na Pedagogické oddelenie, nie sem",
+        "Úradné hodiny zvyčajne stredu poobede",
+        "Žiadosti podaj cez podateľňu na prízemí"
+      ]
+    },
+    {
+      "id": "pedagogicke",
+      "name_sk": "Pedagogické oddelenie",
+      "name_en": "Student affairs office",
+      "icon": "📋",
+      "x": 50,
+      "y": 35,
+      "description": "Najdôležitejšie miesto pre študenta: zápisy, potvrdenia o štúdiu, individuálny plán, prerušenie, stipendiá.",
+      "tips": [
+        "Úradné hodiny obvykle Po, Ut, Št 9:00–11:00 a 13:00–14:30",
+        "Vždy si vezmi ISIC alebo OP",
+        "Mailom riešia rýchlejšie než osobne, ale uveď ID študenta"
+      ]
+    },
+    {
+      "id": "poradenske",
+      "name_sk": "Poradenské centrum",
+      "name_en": "Counseling centre",
+      "icon": "🤝",
+      "x": 28,
+      "y": 28,
+      "description": "Psychologické, sociálne aj kariérne poradenstvo pre študentov STU. Pomoc pri strese, prokrastinácii, adaptácii.",
+      "tips": [
+        "Konzultácie sú bezplatné a dôverné",
+        "Pre Erasmus študentov majú anglicky hovoriaceho poradcu",
+        "Objednaj sa mailom, čakacia doba ~1 týždeň"
+      ]
+    },
+    {
+      "id": "telocvicna",
+      "name_sk": "Telocvičňa",
+      "name_en": "Gym",
+      "icon": "🏐",
+      "x": 12,
+      "y": 45,
+      "description": "Univerzitná telocvičňa – basketbal, volejbal, futsal, badminton. Súčasť predmetu Telesná výchova.",
+      "tips": [
+        "TV si zapíš v AIS prvý týždeň, kapacity sa plnia rýchlo",
+        "Prezuvky povinné, šatne na zámok – nos si visiaci",
+        "Voľné termíny pre študentov sú aj večer"
+      ]
+    },
+    {
+      "id": "bazen",
+      "name_sk": "Bazén STU",
+      "name_en": "STU swimming pool",
+      "icon": "🏊",
+      "x": 8,
+      "y": 30,
+      "description": "25-metrový plavecký bazén – pre študentov zľavnené vstupné s ISIC.",
+      "tips": [
+        "Vstup so študentskou zľavou ~2 €",
+        "Plavecká čiapka povinná",
+        "Otvorené aj pre verejnosť, najmenej ľudí ráno 7:00–9:00"
+      ]
+    },
+    {
+      "id": "lezecka",
+      "name_sk": "Lezecká stena",
+      "name_en": "Climbing wall",
+      "icon": "🧗",
+      "x": 15,
+      "y": 18,
+      "description": "Interná lezecká stena STU, kurz lezenia ako voliteľná TV. Boulder + lano.",
+      "tips": [
+        "Bez kurzu len so skúškou samostatnosti",
+        "Sedák a lezečky sa požičiavajú zdarma s ISIC",
+        "Komunita aktívna na Discorde STU Climbing"
+      ]
+    },
+    {
+      "id": "studentsky-klub",
+      "name_sk": "Študentský klub / FEI klub",
+      "name_en": "Student club",
+      "icon": "🎉",
+      "x": 75,
+      "y": 80,
+      "description": "Spoločenský priestor – stolný futbal, pivo, akcie študentských organizácií. FEIstival štartuje tu.",
+      "tips": [
+        "Štvrtok večer býva otvorený mic / koncert",
+        "Sleduj IG @feistu pre eventy",
+        "Tu nájdeš spolužiakov rýchlejšie než na prednáške"
+      ]
+    },
+    {
+      "id": "parkovisko",
+      "name_sk": "Parkovisko",
+      "name_en": "Parking lot",
+      "icon": "🅿️",
+      "x": 88,
+      "y": 88,
+      "description": "Parkovisko pre študentov a zamestnancov za budovou. Cez týždeň zaplnené, lepšie chodiť MHD.",
+      "tips": [
+        "Študentská permanentka sa rieši cez Pedagogické oddelenie",
+        "Bicykle: stojany pri vchode B sú zastrešené",
+        "Cez deň často plné po 9:00"
+      ]
+    },
+    {
+      "id": "autobus",
+      "name_sk": "Zastávka MHD Mlynská dolina",
+      "name_en": "Bus stop Mlynská dolina",
+      "icon": "🚌",
+      "x": 92,
+      "y": 50,
+      "description": "Najbližšia MHD zastávka – linky 32, 39, 33, 192. 3 min pešo od hlavného vstupu.",
+      "tips": [
+        "Električka 9 ide k internátom Mladá garda",
+        "Kúp si predplatný lístok pre študentov v IDS BK appke",
+        "Z centra 15–20 min, v špičke aj 30"
+      ]
+    }
+  ],
+  "first_week_todo": [
+    {
+      "id": "ais-login",
+      "title_sk": "Prihlás sa do AIS",
+      "title_en": "Log in to AIS",
+      "description": "AIS (Akademický informačný systém) – is.stuba.sk. Tu máš rozvrh, zápisy predmetov, známky, hodnotenia. Prihlasovacie údaje dostaneš pri zápise.",
+      "icon": "🔑",
+      "priority": "critical"
+    },
+    {
+      "id": "isic",
+      "title_sk": "Vyzdvihni ISIC kartu",
+      "title_en": "Pick up your ISIC card",
+      "description": "ISIC = preukaz študenta + zľavy + ID do jedálne, knižnice, MHD. Vydáva študijné oddelenie / centrum kariér. Bez ISIC nemáš lacný obed ani dotovanú MHD.",
+      "icon": "💳",
+      "priority": "critical"
+    },
+    {
+      "id": "ubytovanie",
+      "title_sk": "Rieš ubytovanie",
+      "title_en": "Sort out dorm / housing",
+      "description": "Najlacnejšie internáty STU (Mladá garda, Mlyny, Dobrovičova). Pre Erasmus často pridelený internát, pre Slovákov žiadosť cez ubytovanie.stuba.sk – kapacity sa plnia v auguste.",
+      "icon": "🏠",
+      "priority": "critical"
+    },
+    {
+      "id": "rozvrh",
+      "title_sk": "Stiahni si rozvrh",
+      "title_en": "Get your timetable",
+      "description": "V AIS → Moje štúdium → Rozvrh. Skontroluj, či máš zapísané všetky povinné predmety a žiadne kolízie. Erasmus študenti si rozvrh skladajú cez Learning Agreement.",
+      "icon": "📅",
+      "priority": "critical"
+    },
+    {
+      "id": "mapa-budovy",
+      "title_sk": "Nauč sa orientovať v budove",
+      "title_en": "Learn the building map",
+      "description": "FEI má bloky A, B, C, D a E. Číslovanie miestností: prvé číslo = poschodie, ďalšie = blok+miestnosť. Choď na prvé prednášky o 15 min skôr a nájdi si trasu.",
+      "icon": "🗺️",
+      "priority": "high"
+    },
+    {
+      "id": "mhd-pass",
+      "title_sk": "Kúp si predplatný lístok MHD",
+      "title_en": "Get a public transport pass",
+      "description": "DPB / IDS BK študentská predplatka ~ 70 €/semester. Cez appku IDS BK alebo automaty. Bez nej je každý lístok 1,10 € a denne sa to nasčíta.",
+      "icon": "🚌",
+      "priority": "high"
+    },
+    {
+      "id": "webmail",
+      "title_sk": "Aktivuj STU mail a Office 365",
+      "title_en": "Set up STU email + Office 365",
+      "description": "Adresa typu xpriezviskoX@stuba.sk. Office 365 (Word, Excel, Teams) zdarma pre študentov cez account.microsoft.com so STU mailom. Niektorí učitelia komunikujú výhradne cez Teams.",
+      "icon": "📧",
+      "priority": "high"
+    },
+    {
+      "id": "teams",
+      "title_sk": "Nainštaluj si MS Teams",
+      "title_en": "Install MS Teams",
+      "description": "Cvičenia, materiály, oznamy – väčšina predmetov má Teams kanál. Prihlás sa STU mailom, učitelia ťa pridávajú automaticky podľa zápisu v AIS.",
+      "icon": "💬",
+      "priority": "high"
+    },
+    {
+      "id": "pedagogicke-oddelenie",
+      "title_sk": "Nájdi si Pedagogické oddelenie",
+      "title_en": "Locate Student Affairs office",
+      "description": "Pozri si miestnosť a úradné hodiny svojho študijného referenta (referent býva pridelený podľa študijného programu). Sem chodíš pre potvrdenia, žiadosti, individuálny plán.",
+      "icon": "📋",
+      "priority": "high"
+    },
+    {
+      "id": "kniznica-registracia",
+      "title_sk": "Zaregistruj sa v knižnici",
+      "title_en": "Register at the library",
+      "description": "Akademická knižnica STU – registrácia s ISIC zadarmo. Skriptá k povinným predmetom si požičaj hneď v 1. týždni, kapacita je obmedzená.",
+      "icon": "📚",
+      "priority": "medium"
+    },
+    {
+      "id": "telesna-vychova",
+      "title_sk": "Zapíš si Telesnú výchovu",
+      "title_en": "Sign up for PE class",
+      "description": "TV je povinná v prvom ročníku (zvyčajne 2 semestre). Zápis cez AIS – beh, plávanie, posilka, basketbal, lezenie. Limitované kapacity, zapíš sa hneď.",
+      "icon": "⚽",
+      "priority": "medium"
+    },
+    {
+      "id": "studijna-skupina",
+      "title_sk": "Nájdi si študijnú skupinu",
+      "title_en": "Find your study group",
+      "description": "Krúžok / cvičná skupina ti uľahčí prežitie. Pýtaj sa na prvom cvičení, sleduj Discord / Telegram pre svoj ročník (linky obvykle visia na nástenkách alebo v Teams).",
+      "icon": "👥",
+      "priority": "medium"
+    },
+    {
+      "id": "studentska-organizacia",
+      "title_sk": "Pripoj sa k študentskej organizácii",
+      "title_en": "Join a student org",
+      "description": "ŠOOÚ FEI, IAESTE, ESN STU (pre Erasmus), IEEE Student Branch. Najlepší spôsob ako spoznať seniorov, dostať tipy a chodiť na akcie ako FEIstival.",
+      "icon": "🤝",
+      "priority": "low"
+    },
+    {
+      "id": "lekar",
+      "title_sk": "Zariaď zdravotné poistenie a lekára",
+      "title_en": "Set up health insurance & GP",
+      "description": "Erasmus: EHIC / cestovné poistenie stačí. Riadni medzinárodní študenti: zariaď komerčné poistenie alebo verejné cez VšZP. Najbližší lekár pre študentov je v poliklinike Mýtna alebo Dérerova.",
+      "icon": "🏥",
+      "priority": "medium"
+    }
+  ],
+  "emergency_contacts": [
+    {
+      "name": "Pedagogické oddelenie FEI",
+      "purpose": "Zápisy, potvrdenia, žiadosti, individuálny plán",
+      "phone": "+421 2 6029 1111",
+      "email": "pedagogicke@fei.stuba.sk",
+      "hours": "Po, Ut, Št 9:00–11:00, 13:00–14:30"
+    },
+    {
+      "name": "Dekanát FEI",
+      "purpose": "Oficiálne podania, vedenie fakulty",
+      "phone": "+421 2 6029 1100",
+      "email": "dekanat@fei.stuba.sk",
+      "hours": "Po–Pi 8:00–15:00"
+    },
+    {
+      "name": "Poradenské centrum STU",
+      "purpose": "Psychologické, kariérne a sociálne poradenstvo",
+      "phone": "+421 2 6029 1234",
+      "email": "poradenstvo@stuba.sk",
+      "hours": "Po–Pi 9:00–16:00, objednanie mailom"
+    },
+    {
+      "name": "IT Helpdesk STU",
+      "purpose": "AIS heslo, STU mail, eduroam, Office 365",
+      "phone": "+421 2 6029 1700",
+      "email": "helpdesk@stuba.sk",
+      "hours": "Po–Pi 8:00–16:00"
+    },
+    {
+      "name": "Akademická knižnica STU",
+      "purpose": "Výpožičky, registrácia, tlač, skenovanie",
+      "phone": "+421 2 6029 1500",
+      "email": "kniznica@stuba.sk",
+      "hours": "Po–Pi 9:00–18:00, So 9:00–13:00"
+    },
+    {
+      "name": "Ubytovanie ŠDaJ",
+      "purpose": "Internáty Mladá garda, Mlyny, Dobrovičova",
+      "phone": "+421 2 6029 1800",
+      "email": "ubytovanie@stuba.sk",
+      "hours": "Po–Pi 8:00–15:00"
+    },
+    {
+      "name": "Vrátnica / Security FEI",
+      "purpose": "Stratený ISIC, zabudnuté veci, večerný vstup",
+      "phone": "+421 2 6029 1000",
+      "email": "vratnica@fei.stuba.sk",
+      "hours": "Nonstop"
+    }
+  ]
+}

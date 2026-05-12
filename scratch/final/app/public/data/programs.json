@@ -1,0 +1,115 @@
+{
+  "source": "https://www.fei.stuba.sk/sk/uchadzaci/chcem-studovat-na-feike/studijne-programy",
+  "fetched_at": "2026-05-12",
+  "note": "Skutočný zoznam 9 bakalárskych študijných programov FEI STU; opisy a kľúčové slová prevzaté zo stránok jednotlivých programov (Čo sa naučíte / Profil absolventa). Anglické názvy a uplatnenia doplnené na základe znalostí.",
+  "programs": [
+    {
+      "id": "applied-informatics",
+      "name_sk": "Aplikovaná informatika",
+      "name_en": "Applied Informatics",
+      "icon": "💻",
+      "color": "#4f8cff",
+      "description_sk": "Teoreticko-metodologické základy informatiky, programovanie, umelá inteligencia, dátová veda, počítačové siete a bezpečnosť informačných systémov.",
+      "description_en": "Theoretical and practical foundations of computer science: programming, AI, data science, computer architecture, networks and information security.",
+      "subjects": ["Algoritmizácia a programovanie", "Umelá inteligencia", "Dátová veda", "Operačné systémy", "Počítačové siete", "Bezpečnosť IS", "Modelovanie a simulácia"],
+      "careers": ["Software Engineer", "Data Scientist", "AI/ML Engineer", "Cybersecurity Specialist"],
+      "url": "https://www.fei.stuba.sk/6278"
+    },
+    {
+      "id": "digital-technologies",
+      "name_sk": "Digitálne technológie",
+      "name_en": "Digital Technologies",
+      "icon": "🌐",
+      "color": "#7c3aed",
+      "description_sk": "Kombinácia kybernetiky a informatiky pre digitálnu transformáciu: programovanie, automatizácia, IoT, AI a Industry 4.0/5.0.",
+      "description_en": "Cybernetics meets informatics: software engineering, automation, signal processing, AI and integration of HW/SW systems for Industry 4.0/5.0.",
+      "subjects": ["Programovanie", "Softvérové inžinierstvo", "Digitálne spracovanie signálov", "Umelá inteligencia", "Databázy", "Automatizácia", "Sieťové technológie"],
+      "careers": ["Full-stack Developer", "IoT Engineer", "Automation Specialist", "Digital Transformation Consultant"],
+      "url": "https://www.fei.stuba.sk/7435"
+    },
+    {
+      "id": "power-engineering",
+      "name_sk": "Elektroenergetika",
+      "name_en": "Power Engineering",
+      "icon": "⚡",
+      "color": "#f59e0b",
+      "description_sk": "Fungovanie a ekonomika energetických systémov, obnoviteľné zdroje, elektrické stroje, vysoké napätia, svetelná technika a simulácie elektrizačnej sústavy.",
+      "description_en": "Operation and economics of power systems, renewables, electrical machines, high-voltage technology, lighting and simulation of the grid.",
+      "subjects": ["Elektrické stroje", "Obnoviteľné zdroje", "Vysoké napätia", "Elektrárne", "Svetelná technika", "Elektrizačná sústava", "Energetická ekonomika"],
+      "careers": ["Energetik / Power Engineer", "Inžinier obnoviteľných zdrojov", "Projektant elektrických sietí", "Špecialista smart grid"],
+      "url": "https://www.fei.stuba.sk/6280"
+    },
+    {
+      "id": "electronic-systems-chips",
+      "name_sk": "Elektronické systémy a návrh čipov",
+      "name_en": "Electronic Systems and Chip Design",
+      "icon": "🔌",
+      "color": "#ef4444",
+      "description_sk": "Návrh, konštrukcia a prevádzka elektronických obvodov a systémov, nanoelektronika, inteligentné senzory, návrh čipov, optoelektronika a IoT.",
+      "description_en": "Design, construction and operation of electronic circuits and systems, nanoelectronics, smart sensors, chip design, optoelectronics and IoT.",
+      "subjects": ["Návrh čipov (IC design)", "Nanoelektronika", "Senzory", "Optoelektronika", "Analógové a číslicové obvody", "Internet vecí", "Organická elektronika"],
+      "careers": ["IC / Chip Designer", "Hardware Engineer", "Embedded Systems Developer", "IoT / Sensor Engineer"],
+      "url": "https://www.fei.stuba.sk/6281"
+    },
+    {
+      "id": "electrical-engineering",
+      "name_sk": "Elektrotechnika",
+      "name_en": "Electrical Engineering",
+      "icon": "🔋",
+      "color": "#10b981",
+      "description_sk": "Základy teórie elektrických obvodov a poľa, materiály, výkonová elektronika, mikropočítače, meranie, automatizácia a elektrické stroje.",
+      "description_en": "Foundations of circuit theory, electromagnetic fields, materials, power electronics, microcontrollers, measurement and electrical machines.",
+      "subjects": ["Elektrické obvody", "Elektromagnetické pole", "Výkonová elektronika", "Mikropočítače", "Meracia technika", "Automatizácia", "Elektrické stroje"],
+      "careers": ["Elektrotechnik", "Vývojár výkonovej elektroniky", "Skúšobný inžinier", "Projektant elektroinštalácií"],
+      "url": "https://www.fei.stuba.sk/6282"
+    },
+    {
+      "id": "ict",
+      "name_sk": "Informačné a komunikačné technológie",
+      "name_en": "Information and Communication Technologies",
+      "icon": "📡",
+      "color": "#06b6d4",
+      "description_sk": "Inžinierska profesia v IKT: analýza, návrh, prevádzka, údržba a používanie komunikačných a informačných systémov a sietí.",
+      "description_en": "ICT engineering covering analysis, design, deployment and operation of modern communication networks and information systems.",
+      "subjects": ["Komunikačné siete", "Digitálne komunikácie", "Tvorba softvéru", "IPv6 a IoT", "Spracovanie signálov", "Prístupové siete", "Operačné systémy a databázy"],
+      "careers": ["Network Engineer", "Telecom Specialist", "Backend Developer", "Cloud / DevOps Engineer"],
+      "url": "https://www.fei.stuba.sk/6285"
+    },
+    {
+      "id": "smart-tech-automotive-mechatronics",
+      "name_sk": "Inteligentné technológie a automobilová mechatronika",
+      "name_en": "Smart Technologies and Automotive Mechatronics",
+      "icon": "🚗",
+      "color": "#3b82f6",
+      "description_sk": "Informatika, elektronika, mechanika a automatické riadenie s dvoma zameraniami: inteligentné technológie/IoT a automobilová mechatronika a elektromobilita.",
+      "description_en": "Informatics, electronics, mechanics and control with two tracks: smart technologies/IoT and automotive mechatronics & e-mobility.",
+      "subjects": ["Mechatronika", "Automatické riadenie", "Mikropočítačové systémy", "Stavba automobilov", "Modelovanie v Matlabe", "Internet vecí", "Elektromobilita"],
+      "careers": ["Automotive Mechatronics Engineer", "EV Systems Engineer", "Control Engineer", "Smart Devices / IoT Developer"],
+      "url": "https://www.fei.stuba.sk/6279"
+    },
+    {
+      "id": "nuclear-physical-engineering",
+      "name_sk": "Jadrové a fyzikálne inžinierstvo",
+      "name_en": "Nuclear and Physical Engineering",
+      "icon": "☢️",
+      "color": "#84cc16",
+      "description_sk": "Matematika, fyzika a informatika s aplikáciou v jadrovej energetike: meranie, zber a spracovanie dát, diagnostika a modelovanie procesov.",
+      "description_en": "Mathematics, physics and informatics applied to nuclear power: measurement, data acquisition, diagnostics and modelling of physical processes.",
+      "subjects": ["Jadrová fyzika", "Reaktorová fyzika", "Dozimetria", "Meranie a zber dát", "Modelovanie a simulácia", "Materiály v jadrovej technike", "Aplikovaná matematika"],
+      "careers": ["Inžinier v jadrovej elektrárni", "Špecialista radiačnej ochrany", "Výskumný fyzik", "Diagnostik a merací inžinier"],
+      "url": "https://www.fei.stuba.sk/6283"
+    },
+    {
+      "id": "robotics-cybernetics",
+      "name_sk": "Robotika a kybernetika",
+      "name_en": "Robotics and Cybernetics",
+      "icon": "🤖",
+      "color": "#a855f7",
+      "description_sk": "Teória kybernetiky a informatiky pre návrh, konštrukciu a riadenie mobilných robotov, priemyselných manipulátorov a inteligentných riadiacich systémov.",
+      "description_en": "Cybernetics and informatics for design, construction and control of mobile robots, industrial manipulators and intelligent control systems.",
+      "subjects": ["Robotika", "Automatické riadenie", "Umelá inteligencia", "Mobilné roboty", "Priemyselné manipulátory", "Sieťové riadiace systémy", "Programovanie"],
+      "careers": ["Robotics Engineer", "Control Systems Engineer", "Automation Specialist", "AI / Autonomous Systems Developer"],
+      "url": "https://www.fei.stuba.sk/6284"
+    }
+  ]
+}

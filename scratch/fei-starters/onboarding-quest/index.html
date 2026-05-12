@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>FEI STU Onboarding quest</title>
+<style>
+  body{font:15px/1.5 system-ui,sans-serif;max-width:720px;margin:24px auto;padding:0 16px}
+  label{display:block;margin:8px 0 2px;font-weight:600}
+  input,select{width:100%;padding:8px;font:inherit;box-sizing:border-box}
+  button{margin-top:12px;padding:10px 18px;font:inherit;cursor:pointer}
+  .step{border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}
+  .due{color:#666;font-size:13px}
+  .price{color:#0a4;font-weight:600;float:right}
+  h2{margin-top:24px}
+</style>
+</head>
+<body>
+<h1>FEI STU — onboarding pre prvákov</h1>
+<form id="f">
+  <label>Meno <input name="name" required></label>
+  <label>Priezvisko <input name="surname" required></label>
+  <label>Program (Bc.) <select name="program" id="prog" required></select></label>
+  <label>Domáce mesto <input name="fromHome" placeholder="napr. Košice"></label>
+  <button type="submit">Vygenerovať plán</button>
+</form>
+<div id="out"></div>
+<script>
+const out = document.getElementById('out');
+const sel = document.getElementById('prog');
+
+fetch('/api/programs').then(r=>r.json()).then(list=>{
+  for(const p of list){
+    const o = document.createElement('option');
+    o.value = p; o.textContent = p; sel.appendChild(o);
+  }
+});
+
+document.getElementById('f').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const body = Object.fromEntries(fd);
+  const r = await fetch('/plan', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(body)});
+  const data = await r.json();
+  out.replaceChildren();
+  const h = document.createElement('h2'); h.textContent = `Tvoj timeline (spolu ${data.total_eur} €)`; out.appendChild(h);
+  for(const s of data.steps){
+    const div = document.createElement('div'); div.className = 'step';
+    if(s.price){
+      const p = document.createElement('span'); p.className = 'price'; p.textContent = s.price + ' €'; div.appendChild(p);
+    }
+    const t = document.createElement('div'); t.style.fontWeight = 'bold'; t.textContent = s.title; div.appendChild(t);
+    const d = document.createElement('div'); d.className = 'due'; d.textContent = 'do ' + s.due; div.appendChild(d);
+    const n = document.createElement('div'); n.textContent = s.note; div.appendChild(n);
+    out.appendChild(div);
+  }
+  const a = document.createElement('a');
+  const qs = new URLSearchParams(body).toString();
+  a.href = '/calendar.ics?' + qs; a.textContent = 'Stiahnuť .ics';
+  a.style.display = 'inline-block'; a.style.marginTop = '12px';
+  out.appendChild(a);
+});
+</script>
+</body>
+</html>

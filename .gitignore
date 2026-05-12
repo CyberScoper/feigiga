@@ -1,9 +1,37 @@
+# dependency caches
 __pycache__/
 *.pyc
-*.log
+.venv/
+node_modules/
+.pnpm-store/
+
+# build artifacts
+dist/
+build/
+.next/
+.nuxt/
+.output/
+.cache/
+
+# data / runtime
 *.db
 *.db-wal
 *.db-shm
-.venv/
-node_modules/
+*.log
+*.sqlite
+*.sqlite3
+
+# media (push отдельно через LFS если нужно)
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# editor / OS
 .DS_Store
+.idea/
+.vscode/
+*.swp
+
+# local Claude state
+.claude/

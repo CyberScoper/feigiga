@@ -1,0 +1,44 @@
+{
+  "code": "B-MAT1",
+  "name_sk": "Matematika 1",
+  "name_en": "Mathematics 1",
+  "icon": "📐",
+  "semester": "Zimný (1. ročník Bc.)",
+  "format": "4h prednáška + 2h cvičenie",
+  "parallels": [
+    { "id": "M1I", "name": "M1I — Aplikovaná informatika", "lecturer": "doc. RNDr. Karol Rudolf, PhD." },
+    { "id": "M1",  "name": "M1 — Robotika a kybernetika / IKT", "lecturer": "doc. RNDr. Jozef Polakovič, PhD." },
+    { "id": "M1E", "name": "M1E — Elektroenergetika / Elektronika", "lecturer": "RNDr. Mária Čipková, PhD." }
+  ],
+  "grading": {
+    "split": "40 (semester) + 60 (záverečná písomka 120 min)",
+    "min_admit": "10 bodov zo semestra (semestrálky)",
+    "passing_grade_E": "≥ 56 bodov",
+    "rule": "Bez minima 10 zo semestra nedostaneš zápočet. Bez zápočtu nemôžeš ísť na skúšku."
+  },
+  "topics": [
+    { "n": 1, "id": "complex",  "title": "Komplexné čísla", "summary": "Algebraický a goniometrický tvar, Moivre, riešenie binomických rovníc, korene jednotky." },
+    { "n": 2, "id": "matrices", "title": "Matice a sústavy lineárnych rovníc (SLR)",  "summary": "Operácie s maticami, inverzná matica, hodnosť, Gaussova eliminácia, riešenie sústav." },
+    { "n": 3, "id": "det",      "title": "Determinanty a Cramerovo pravidlo",  "summary": "Vlastnosti, Sarrus, Laplaceov rozvoj, Cramerove vzorce pre n×n sústavy." },
+    { "n": 4, "id": "real",     "title": "Reálne funkcie reálnej premennej", "summary": "Definičný obor, graf, párnosť/nepárnosť, monotónnosť, ohraničenosť, inverzná funkcia, elementárne funkcie." },
+    { "n": 5, "id": "limits",   "title": "Postupnosti a limity funkcií", "summary": "Konvergencia, vety o limitách, jednostranné limity, asymptoty, neurčité výrazy 0/0, ∞/∞." },
+    { "n": 6, "id": "diff",     "title": "Diferenciálny počet jednej premennej", "summary": "Derivácia, derivácia inverznej a zloženej funkcie, L'Hôpital, priebeh funkcie, lokálne extrémy." },
+    { "n": 7, "id": "series",   "title": "Postupnosti a nekonečné rady, Taylorov rozvoj", "summary": "Konvergenčné kritériá (d'Alembert, Cauchy, integrálne), absolútna vs neabsolútna konvergencia, mocninový rad, Taylor a MacLaurin." }
+  ],
+  "danger_zones": [
+    "Postupnosti a rady (téma 7) — preťahuje sa do skúšky a väčšina prepadáva práve tu.",
+    "Inverzné matice — bezhlavé počítanie, jeden znak preč = celá úloha nula.",
+    "Limity 0/0 bez L'Hôpitala — preferované úpravy (zlomky, racionalizácia, ekvivalencie sin x ~ x).",
+    "Cauchy integrálne kritérium pre rady — ľahko prehliadnuteľný krok."
+  ],
+  "pdfs": [
+    { "title": "M1 Marko — Prednášky (hlavný skriptum)", "url": "https://matika.fei.stuba.sk/KMAT/Matematika1/ParalelkaB?action=AttachFile&do=view&target=M1MarkoPrednasky.pdf" },
+    { "title": "Diferenciálny počet", "url": "https://matika.fei.stuba.sk/KMAT/Matematika1/ParalelkaB?action=AttachFile&do=view&target=Diferencialny_pocet.pdf" },
+    { "title": "Postupnosti a rady", "url": "https://matika.fei.stuba.sk/KMAT/Matematika1/ParalelkaB?action=AttachFile&do=view&target=Postupnosti_a_rady.pdf" },
+    { "title": "Komplexné čísla", "url": "https://matika.fei.stuba.sk/KMAT/Matematika1/ParalelkaB?action=AttachFile&do=view&target=ComplexNumbers.pdf" },
+    { "title": "Príklady 1 — riešené úlohy", "url": "https://matika.fei.stuba.sk/KMAT/Matematika1/ParalelkaB?action=AttachFile&do=view&target=Priklady1.pdf" },
+    { "title": "Príklady 2 — riešené úlohy", "url": "https://matika.fei.stuba.sk/KMAT/Matematika1/ParalelkaB?action=AttachFile&do=view&target=Priklady2.pdf" }
+  ],
+  "video_archive": "24 video prednášok z 2021/22 (paralelka B)",
+  "_source": "Live: matika.fei.stuba.sk pattern + sylabus 2025/26 + interné poznámky od starších ročníkov."
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1726"/>
+      <stop offset="100%" stop-color="#060e1a"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(127,219,255,0.18)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="96" fill="url(#grid)"/>
+  <!-- corner brackets -->
+  <path d="M 56 56 L 56 96 M 56 56 L 96 56" stroke="#ff7a3d" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 456 456 L 456 416 M 456 456 L 416 456" stroke="#ff7a3d" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- sine wave -->
+  <path d="M 56 280 Q 120 180 184 280 T 312 280 T 440 280" stroke="#7fdbff" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- FEI text -->
+  <text x="256" y="380" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-size="100" font-weight="800" fill="#ff7a3d" letter-spacing="-4">FEI</text>
+  <text x="256" y="426" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-size="22" font-weight="600" fill="#7fdbff" letter-spacing="3">COMPANION</text>
+</svg>

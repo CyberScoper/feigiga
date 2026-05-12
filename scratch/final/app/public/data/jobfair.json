@@ -1,0 +1,179 @@
+{
+  "event": {
+    "name": "FEI JobFair",
+    "next_date": "2026 (jarný ročník — registrácia partnerov do 31. marca 2026)",
+    "last_dates": ["26. novembra 2025", "8. októbra 2025"],
+    "location": "Hlavná chodba FEI STU, Ilkovičova 3, Bratislava (Mlynská dolina)",
+    "format": "Otvorený priestor, prezentačné stánky 4x1,5 m, bez registrácie pre návštevníkov",
+    "audience": "2300+ študentov FEI + verejnosť a študenti iných fakúlt v Mlynskej doline",
+    "frequency": "raz za semester (jarný + jesenný ročník)",
+    "typical_partners_per_event": 10,
+    "tradition_years": "vyše 20 rokov",
+    "description": "Najpopulárnejšie kariérne podujatie FEI STU. Partneri z praxe prezentujú svoje kariérne príležitosti priamo na fakulte. Súčasťou sú aj prednášky firiem a Biznis raňajky.",
+    "source_url": "https://www.fei.stuba.sk/sk/verejnost-a-media/spolupraca-s-firmami/karierny-veltrh-fei-jobfair"
+  },
+  "data_source": "live",
+  "data_notes": "Zoznam partnerov stiahnutý z oficiálnej stránky FEI STU (ročníky 2023-2025). Roles a tagliny doplnené z verejne známych profilov firiem.",
+  "companies": [
+    {
+      "id": "slovenske-elektrarne",
+      "name": "Slovenské elektrárne",
+      "industry": "Energetika",
+      "tagline": "Najväčší výrobca elektriny na Slovensku, prevádzkovateľ jadrových elektrární Mochovce a Bohunice.",
+      "roles": ["Elektroenergetický inžinier", "Operátor jadrovej elektrárne", "Riadiace systémy"],
+      "tags": ["Energy", "Nuclear", "Power"],
+      "url": "https://www.seas.sk/kariera-seas",
+      "attended": ["2023-jeseň", "2024-jar", "2024-jeseň", "2025-jar", "2025-okt", "2025-nov"]
+    },
+    {
+      "id": "nokia",
+      "name": "Nokia",
+      "industry": "Telekom",
+      "tagline": "Globálny dodávateľ sieťových technológií 5G/optických sietí, R&D centrum v Bratislave.",
+      "roles": ["Network Engineer", "Software Developer (C++)", "5G Researcher"],
+      "tags": ["Telekom", "Networks", "5G"],
+      "url": "https://www.nokia.com/about-us/",
+      "attended": ["2023-jeseň", "2024-jar", "2024-jeseň", "2025-jar", "2025-okt"]
+    },
+    {
+      "id": "eset",
+      "name": "ESET",
+      "industry": "Cybersecurity",
+      "tagline": "Slovenský líder v IT bezpečnosti, antivírusové a EDR riešenia pre globálny trh.",
+      "roles": ["Security Researcher", "Malware Analyst", "C++ Developer"],
+      "tags": ["Security", "AI", "Reverse Engineering"],
+      "url": "https://jobs.eset.com/int",
+      "attended": ["2023-jeseň"]
+    },
+    {
+      "id": "onsemi",
+      "name": "onsemi",
+      "industry": "Polovodiče",
+      "tagline": "Návrh a vývoj polovodičov pre automotive a priemysel, R&D v Bratislave a Piešťanoch.",
+      "roles": ["Analog IC Designer", "Verification Engineer", "Embedded Engineer"],
+      "tags": ["Semiconductors", "Automotive", "IC Design"],
+      "url": "https://kariera-onsemi.sk/",
+      "attended": ["2024-jar", "2024-jeseň", "2025-okt"]
+    },
+    {
+      "id": "mahle",
+      "name": "MAHLE",
+      "industry": "Automotive",
+      "tagline": "Vývoj komponentov a elektrifikácia pohonov pre automobilový priemysel.",
+      "roles": ["Embedded Engineer", "Test Engineer", "Mechatronik"],
+      "tags": ["Automotive", "Embedded", "E-mobility"],
+      "url": "https://www.mahle.com/",
+      "attended": ["2023-jeseň", "2024-jar", "2024-jeseň", "2025-jar", "2025-okt"]
+    },
+    {
+      "id": "framatome",
+      "name": "Framatome Controls",
+      "industry": "Jadrová energetika",
+      "tagline": "Riadiace a bezpečnostné systémy pre jadrové elektrárne (I&C).",
+      "roles": ["Control Systems Engineer", "FPGA Engineer", "Safety I&C Engineer"],
+      "tags": ["Nuclear", "Control Systems", "Safety"],
+      "url": "https://www.framatome.com/en/about/locations/slovakia/",
+      "attended": ["2023-jeseň", "2024-jar", "2024-jeseň", "2025-jar", "2025-okt"]
+    },
+    {
+      "id": "ppa-controll",
+      "name": "PPA CONTROLL",
+      "industry": "Priemyselná automatizácia",
+      "tagline": "Slovenský integrátor riadiacich systémov pre energetiku a priemysel.",
+      "roles": ["PLC Programátor", "SCADA Inžinier", "Automatizačný inžinier"],
+      "tags": ["Automation", "PLC", "Industry"],
+      "url": "https://www.ppa.sk/",
+      "attended": ["2023-jeseň", "2025-jar", "2025-nov"]
+    },
+    {
+      "id": "vertiv",
+      "name": "Vertiv Slovakia",
+      "industry": "Power & Cooling",
+      "tagline": "Napájacie a chladiace riešenia pre dátové centrá a kritickú infraštruktúru.",
+      "roles": ["Power Electronics Engineer", "Hardware Designer", "R&D Engineer"],
+      "tags": ["Power Electronics", "Datacenter", "Hardware"],
+      "url": "https://www.vertiv.com/en-emea/campaigns/sk-recruitment/our-company/",
+      "attended": ["2025-jar", "2025-nov"]
+    },
+    {
+      "id": "huawei",
+      "name": "Huawei Technologies",
+      "industry": "Telekom / ICT",
+      "tagline": "Sieťové, cloudové a 5G technológie, R&D spolupráca s univerzitami.",
+      "roles": ["Telecom Engineer", "Cloud Engineer", "Sales Engineer"],
+      "tags": ["Telekom", "Cloud", "5G"],
+      "url": "https://www.linkedin.com/company/huawei/",
+      "attended": ["2024-jar", "2025-jar"]
+    },
+    {
+      "id": "jetbrains",
+      "name": "JetBrains",
+      "industry": "IT / Developer Tools",
+      "tagline": "Vývojové nástroje (IntelliJ, Kotlin, PyCharm) — pobočka v Bratislave.",
+      "roles": ["Java Developer", "Kotlin Engineer", "QA Engineer"],
+      "tags": ["IT", "Developer Tools", "Kotlin"],
+      "url": "https://www.jetbrains.com/careers/apply/",
+      "attended": ["2025-jar", "2025-okt"]
+    },
+    {
+      "id": "lenovo",
+      "name": "Lenovo",
+      "industry": "IT / Hardware",
+      "tagline": "Globálne EMEA centrum v Bratislave, IT služby a hardware operations.",
+      "roles": ["IT Support Engineer", "Data Analyst", "Service Desk"],
+      "tags": ["IT", "Hardware", "Operations"],
+      "url": "https://jobs.lenovo.com/en_US/careers",
+      "attended": ["2025-jar", "2025-okt"]
+    },
+    {
+      "id": "zse",
+      "name": "ZSE (Skupina ZSE)",
+      "industry": "Energetika",
+      "tagline": "Západoslovenská energetika — distribúcia a dodávka elektriny pre západné Slovensko.",
+      "roles": ["Energetik", "Sieťový inžinier", "Smart Grid Engineer"],
+      "tags": ["Energy", "Distribution", "Smart Grid"],
+      "url": "https://www.skupinazse.sk/Uvod/Kariera",
+      "attended": ["2024-jeseň", "2025-nov"]
+    },
+    {
+      "id": "schneider-electric",
+      "name": "Schneider Electric Slovakia",
+      "industry": "Energetika / Automatizácia",
+      "tagline": "Riešenia pre energetický manažment a priemyselnú automatizáciu.",
+      "roles": ["Electrical Engineer", "Embedded SW Engineer", "Product Manager"],
+      "tags": ["Energy", "Automation", "IoT"],
+      "url": "https://www.se.com/ww/en/about-us/careers/overview.jsp",
+      "attended": ["2024-jar", "2025-jar"]
+    },
+    {
+      "id": "continental",
+      "name": "Continental",
+      "industry": "Automotive",
+      "tagline": "Automotive Tier-1 dodávateľ — elektronika, ADAS, brzdové systémy.",
+      "roles": ["Embedded Engineer", "ADAS Software Engineer", "HW Designer"],
+      "tags": ["Automotive", "ADAS", "Embedded"],
+      "url": "https://www.continental.com/en/career/",
+      "attended": ["2024-jar"]
+    },
+    {
+      "id": "vuje",
+      "name": "VUJE",
+      "industry": "Jadrový výskum",
+      "tagline": "Inžiniering a výskum v jadrovej energetike, projektovanie elektrární.",
+      "roles": ["Reaktorový inžinier", "Projektový inžinier", "Bezpečnostný analytik"],
+      "tags": ["Nuclear", "R&D", "Safety"],
+      "url": "https://www.vuje.sk/",
+      "attended": ["2024-jar", "2024-jeseň"]
+    },
+    {
+      "id": "marlink",
+      "name": "Marlink",
+      "industry": "Satelitné komunikácie",
+      "tagline": "Manažovaná konektivita a kybernetická bezpečnosť pre maritime a enterprise.",
+      "roles": ["Network Engineer", "NOC Engineer", "Security Analyst"],
+      "tags": ["Telekom", "Satellite", "Security"],
+      "url": "https://marlink.com/",
+      "attended": ["2023-jeseň", "2024-jar", "2025-jar", "2025-nov"]
+    }
+  ]
+}

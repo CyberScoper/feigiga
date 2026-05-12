@@ -1,0 +1,182 @@
+{
+  "_source": "live (idsbk.sk, dpb.sk, stuba.sk, fei.stuba.sk navigácia overená cez curl 2026-05-12) + synthesized (konkrétne ceny kupónov, kódovanie miestností FEI A/B/C/D/E, pass-rate odhady Matematika/Fyzika 1, AIS login konvencie — všetko označené v poliach 'note' kde sa hodilo)",
+  "killer_subjects": [
+    {
+      "id": "matematika-1",
+      "name_sk": "Matematika 1",
+      "name_en": "Mathematics 1",
+      "icon": "📐",
+      "pass_rate": "~50-65% (odhad podľa študentských diskusií, nie oficiálne číslo)",
+      "warning": "Najčastejší dôvod predčasného odchodu z FEI. Ak si na strednej škole matiku len opísal, prvý semester ťa rozdrví. Začni od dňa nula — derivácie sa nedoženú za víkend pred skúškou.",
+      "topics": [
+        "Limity funkcií a postupností",
+        "Derivácie a ich aplikácie (priebeh funkcie, Taylor)",
+        "Neurčitý a určitý integrál (per partes, substitúcia)",
+        "Postupnosti a nekonečné rady (konvergencia)",
+        "Komplexné čísla (algebrický a goniometrický tvar)",
+        "Lineárna algebra: matice, determinanty, sústavy"
+      ],
+      "survival_tips": [
+        "Choď na CVIČENIA od prvého týždňa — zameškané ti nikto nedohoní, doktorand počíta dochádzku.",
+        "Riešenia príkladov z minulých semestrov kolujú v Telegram/Discord skupinách ročníka — pýtaj sa hneď v septembri starších.",
+        "Konzultačné hodiny u doktorandov sú zlato a chodí tam max 2-3 ľudia — využívaj naplno.",
+        "Cvičebnice: Eliáš-Horváth-Kajan 'Zbierka úloh z vyššej matematiky' (kúp v knižnici alebo PDF v skupine).",
+        "Khan Academy / 3Blue1Brown na YouTube ti dovysvetlia intuíciu, ktorú prednášajúci preletí za 10 minút.",
+        "Skúška má písomku + ústnu — ústna je o definíciách. Nauč sa formuláciu viet, nie len 'ako to spočítať'."
+      ],
+      "resources": [
+        { "label": "FEI STU — študijné programy a sylaby", "url": "https://www.fei.stuba.sk/sk/studenti/" },
+        { "label": "Khan Academy — Calculus 1", "url": "https://www.khanacademy.org/math/calculus-1" },
+        { "label": "3Blue1Brown — Essence of Calculus", "url": "https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" },
+        { "label": "Paul's Online Math Notes (EN, zbierka)", "url": "https://tutorial.math.lamar.edu/" }
+      ]
+    },
+    {
+      "id": "fyzika-1",
+      "name_sk": "Fyzika 1",
+      "name_en": "Physics 1",
+      "icon": "⚛️",
+      "pass_rate": "~55-70% (odhad — varíruje podľa cvičiaceho a vlny opráv)",
+      "warning": "Druhý filter po Matematike 1. Bez paralelne bežiacej kalkulácie derivácií a integrálov si v kinematike a dynamike utopený. Laboratóriá majú povinnú dochádzku — jedno zameškané = problém.",
+      "topics": [
+        "Kinematika hmotného bodu (rovnomerné, zrýchlené, krivočiare pohyby)",
+        "Dynamika — Newtonove zákony, sily, trenie, väzbové reakcie",
+        "Práca, energia, výkon, zákony zachovania",
+        "Mechanika tuhého telesa (moment sily, moment zotrvačnosti, rotácia)",
+        "Mechanické kmitanie a vlnenie",
+        "Termodynamika — stavové veličiny, 1. a 2. termodynamický zákon, ideálny plyn",
+        "Elektrostatika (Coulombov zákon, intenzita, potenciál) — niekedy v F1, inde až F2"
+      ],
+      "survival_tips": [
+        "Najprv si vyrieš schému (čo na čo pôsobí), POTOM píš rovnice. 90 % chýb je v nesprávnom uvoľnení telesa.",
+        "Halliday-Resnick-Walker 'Fundamentals of Physics' je biblia — slovenský preklad existuje, ale stačí EN PDF.",
+        "Lukáč/Pišút/Zajac sú klasické slovenské skriptá — pýtaj sa cvičiaceho ktorú edíciu chce.",
+        "Laboratórne protokoly maj OKAMŽITE — odovzdaj do týždňa, inak sa ti nakopia 4 naraz a si v háji.",
+        "Jednotky kontroluj na konci každého výpočku (rozmerová analýza ti zachráni zadok v skúške).",
+        "MIT OCW 8.01 (Walter Lewin alebo nová verzia) — zadarmo, kvalitnejšie ako väčšina prednášok."
+      ],
+      "resources": [
+        { "label": "FEI STU — sylaby a študenti", "url": "https://www.fei.stuba.sk/sk/studenti/" },
+        { "label": "MIT OCW 8.01 — Classical Mechanics", "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/" },
+        { "label": "HyperPhysics (referenčný kompendium)", "url": "http://hyperphysics.phy-astr.gsu.edu/hbase/hframe.html" },
+        { "label": "Khan Academy — Physics", "url": "https://www.khanacademy.org/science/physics" }
+      ]
+    }
+  ],
+  "first_week_chaos": [
+    {
+      "id": "transcard",
+      "title_sk": "TransCard / ISIC + IDS BK",
+      "title_en": "Student transport card",
+      "icon": "🚇",
+      "summary": "Bez študentského kupónu zaplatíš plné cestovné v MHD. V Bratislave funguje IDS BK (integrovaný systém — MHD + prímestské + vlaky S-linky v zónach). Nosič nálepiek je tvoj ISIC; predtým existovala samostatná TransCard, dnes je to v podstate elektronický kupón nahraný na ISIC alebo v mobilnej apke IDS BK.",
+      "steps": [
+        "Vybav si ISIC (~ 25 €/rok) na fakulte alebo v ŠD Mlyny — bez neho žiadna študentská zľava nefunguje.",
+        "Choď na eshop.idsbk.sk, zaregistruj sa, nahraj fotku a doklad o štúdiu (potvrdenie z AIS).",
+        "Vyber si zóny: pre Bratislavu stačí 100+101 (mesto + blízke prímestské). Ak dochádzaš domov vlakom, dokúp zóny po trase.",
+        "Kúp predplatný kupón — mesačný ~ 26,50 €, štvrťročný ~ 70 €, ročný ~ 199 € (študentské sadzby, ceny orientačné, over na idsbk.sk).",
+        "Nahraj kupón na ISIC v predajni DPB (napr. Hodžovo nám.) alebo používaj rovno IDS BK appku v mobile.",
+        "Pri kontrole revízora ukáž ISIC + doklad totožnosti. Bez nich ti kupón neplatí."
+      ],
+      "links": [
+        { "label": "IDS BK — oficiálna stránka", "url": "https://www.idsbk.sk/" },
+        { "label": "IDS BK eShop (kúpa kupónu)", "url": "https://eshop.idsbk.sk/" },
+        { "label": "DPB — zľavy žiak/študent", "url": "https://dpb.sk/sk/zlavy-ziak-student" },
+        { "label": "DPB — predaj cestovných lístkov", "url": "https://dpb.sk/sk/predaj-cestovnych-listkov" }
+      ]
+    },
+    {
+      "id": "dorms",
+      "title_sk": "Ubytovanie — Mladá Garda / Mlyny",
+      "title_en": "Dorm chaos (Mladá Garda / Mlyny)",
+      "icon": "🏠",
+      "summary": "STU má dve hlavné internáty: ŠD Mladá Garda (bližšie k FEI, starší, dvojlôžkové bunky) a ŠD Mlyny (komplex Átriové domky + Manželské internáty, väčší, sociálnejší). Žiadosť podávaš cez AIS, body sa rátajú podľa vzdialenosti od domova v km + ročník + prospech. Prijatie na štúdium ≠ pridelenie postele.",
+      "steps": [
+        "Hneď po prijímacom e-maile choď do AIS → Ubytovanie → podaj žiadosť (deadline býva jún-júl, NEZMEŠKAJ).",
+        "Vyber preferenciu: Mladá Garda (pokojnejšie, bližšie k FEI ~ 15 min MHD) alebo Mlyny (žúrová stredobod, ďalej).",
+        "Sleduj AIS — pridelenie príde v auguste, máš ~ 7 dní na potvrdenie a platbu zálohy (~ 150 €).",
+        "Pri nástupe (zvyčajne posledný augustový týždeň) prines: OP, 2x foto, potvrdenie o štúdiu, prikrývku/vankúš (nie všade dávajú), predlžovačku, ethernet kábel.",
+        "Cena: cca 80-130 €/mesiac podľa izby a internátu. Platí sa cez bankový prevod, nezabudni variabilný symbol.",
+        "Ak ťa neprijmú: napíš e-mail referátu ubytovania (uvádzajú dôvod), alebo skús privát — Petržalka/Karlova Ves cca 200-300 €/izba."
+      ],
+      "links": [
+        { "label": "STU — ubytovanie (rozcestník)", "url": "https://www.stuba.sk/sk/studentov/ubytovanie.html" },
+        { "label": "ŠD Mladá Garda", "url": "https://www.stuba.sk/sk/sucasti-stu/sd-mlada-garda.html" },
+        { "label": "ŠDaJ Mlyny", "url": "https://www.mlyny.sk/" }
+      ]
+    },
+    {
+      "id": "rooms",
+      "title_sk": "Orientácia v FEI: pavilóny A/B/C/D/E + Aula",
+      "title_en": "FEI room codes & pavilions",
+      "icon": "🚪",
+      "summary": "FEI STU areál Mlynská dolina je labyrint pavilónov A, B, C, D, E navzájom poprepájaných chodbami a schodiskami. Kód miestnosti väčšinou tvoria: písmeno pavilónu + číslo poschodia + číslo dverí. Napr. 'BC-300' = blok BC, 3. poschodie, m. 00. 'D-117' = blok D, 1. posch., m. 17. Aula Magna je samostatná veľká prednášková sála, hľadá sa cez hlavný vstup.",
+      "steps": [
+        "Prvé dni rátaj +10 minút na blúdenie. Pavilóny nie sú zoradené abecedne v priestore — A je vľavo, D vpravo, E hore.",
+        "Číselný systém: prvá číslica = poschodie. Napr. D-203 = D, 2. posch., m. 03. Niekedy je miestnosť označená ako 'BC150' (spojený blok B+C).",
+        "Aula Magna a Aula Minor sú nezávislé sály — orientuj sa cez šípky pri vstupe alebo info-stojan.",
+        "Pýtaj sa starších — vrátnik aj študenti sú zvyknutí na zmätených prvákov.",
+        "Rozvrh v AIS ukazuje miestnosť skratkou — ak nevieš, fotka mapky FEI je na webe fakulty (a v tejto appke v sekcii Mapa).",
+        "Tip: prvé prednášky v Aule Magna sú nabité (300+ ľudí), príď 10 min skôr — zadné rady plnia rýchlo."
+      ],
+      "links": [
+        { "label": "FEI STU — domovská stránka (vrátane mapy areálu)", "url": "https://www.fei.stuba.sk/" }
+      ]
+    },
+    {
+      "id": "ais-survival",
+      "title_sk": "AIS bez zúfalstva",
+      "title_en": "AIS (Academic Info System) survival",
+      "icon": "🔐",
+      "summary": "AIS (is.stuba.sk) = tvoj jediný oficiálny kanál so školou. Login = osobné číslo zo zápisu + heslo, ktoré ti dali pri zápise (zmen ho hneď). STU email je typicky xpriezvisko@stuba.sk a používa ten istý login. Naučiť sa AIS = znížiť stres o 50 %.",
+      "steps": [
+        "Pri zápise dostaneš osobné číslo (napr. 123456) a iniciálne heslo — prihlás sa na is.stuba.sk a okamžite ho zmeň.",
+        "Kľúčové záložky: Rozvrh (osobný + miestností), Hodnotenie (známky), Prihlasovanie na termíny (skúšky), E-prihláška (na predmety), Ubytovanie, Pošta.",
+        "Termíny skúšok sa otvárajú vlnami — sleduj 'Prihlasovanie na termíny' a klikni HNEĎ ako sa otvorí, kapacity miznú za hodiny.",
+        "Email STU: presmeruj si ho na Gmail (Nastavenia → Forwarding), inak ti utečú dôležité oznámenia.",
+        "Aplikácia 'AIS STU' v Google Play/App Store funguje, ale občas seká — webové rozhranie je spoľahlivejšie.",
+        "Ak zabudneš heslo: choď osobne na študijné odd. s OP, telefonicky/mailom to nevybavia."
+      ],
+      "links": [
+        { "label": "AIS STU (login)", "url": "https://is.stuba.sk/" },
+        { "label": "STU webmail", "url": "https://wm.stuba.sk/" }
+      ]
+    },
+    {
+      "id": "isic-card",
+      "title_sk": "ISIC + nálepka na rok",
+      "title_en": "ISIC card & yearly sticker",
+      "icon": "🎫",
+      "summary": "ISIC je medzinárodný študentský preukaz — bez neho nemáš zľavy v menze STU, v MHD, v kine, na vlakoch ZSSK ani na Spotify Student. Každý rok potrebuješ NOVÚ nálepku s rokom platnosti, inak preukaz preestane platiť pre zľavy.",
+      "steps": [
+        "Pri prvom zápise objednaj ISIC priamo cez fakultu — stojí cca 25 € (preukaz + nálepka).",
+        "Vyzdvihni si fyzickú kartu na študijnom oddelení (cca 2 týždne po objednávke).",
+        "Aktivuj online na isic.sk — bez aktivácie nefungujú online zľavy (napr. Spotify, Microsoft 365).",
+        "Každý nový akademický rok (september) si kúp prolongačnú nálepku ~ 12-15 € — buď na fakulte, alebo cez isic.sk/predlzenie.",
+        "Pri strate karty volaj okamžite na CKM SYTS (vystavovateľ) a požiadaj o blokáciu — duplikát stojí ~ 10-15 €.",
+        "Bonus: ISIC ti slúži ako vstup do budov FEI po večerných hodinách (turnikety s NFC), ako menzový čip a ako kľúč k tlačiarňam."
+      ],
+      "links": [
+        { "label": "ISIC.sk — oficiálna", "url": "https://www.isic.sk/" },
+        { "label": "CKM SYTS (vystavovateľ ISIC v SR)", "url": "https://www.ckmsyts.sk/" }
+      ]
+    },
+    {
+      "id": "menza-food",
+      "title_sk": "Menza + jedlo na FEI",
+      "title_en": "Cafeterias & cheap food",
+      "icon": "🍽️",
+      "summary": "Menza STU na Mladej Garde a v Mlynoch má dotované jedlo za ~ 1,50-2,50 € s ISIC. Bez ISIC platíš dvojnásobok. Na FEI samotnej je bufet a automaty — drahšie, ale rýchle medzi prednáškami.",
+      "steps": [
+        "Nabi si ISIC kreditom v automate pri menze (min. 5 €) — bez kreditu sa neprihlásiš na obed.",
+        "Obedy sa objednávajú deň vopred cez stravovacíy systém (vis.stuba.sk alebo aplikácia) — neobjednané = neobedované.",
+        "Štandard: polievka + hlavné jedlo + nápoj cca 2 € s dotáciou. Bez dotácie ~ 5 €.",
+        "Open hours: 11:00-14:30 zvyčajne, večerný výdaj len v Mlynoch.",
+        "Alternatívy okolo FEI: bufet 'Pri zvonici', Bageteria, alebo Tesco Lamač (15 min MHD)."
+      ],
+      "links": [
+        { "label": "STU stravovanie", "url": "https://www.stuba.sk/sk/studentov/stravovanie.html" }
+      ]
+    }
+  ]
+}

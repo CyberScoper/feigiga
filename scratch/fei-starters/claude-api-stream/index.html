@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>Claude chat starter</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]})"></script>
+<style>
+  body{font:15px/1.5 system-ui,-apple-system,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#111}
+  #log{border:1px solid #ddd;border-radius:8px;padding:12px;min-height:240px;white-space:pre-wrap;background:#fafafa}
+  .me{color:#0a4}
+  .ai{color:#06c}
+  textarea{width:100%;height:80px;font:inherit;padding:8px;box-sizing:border-box}
+  button{padding:8px 16px;font-size:15px;cursor:pointer}
+  #sys{width:100%;font:inherit;padding:6px;margin-bottom:8px;box-sizing:border-box}
+  .label{font-weight:bold;margin-right:4px}
+</style>
+</head>
+<body>
+<h2>Claude streaming starter</h2>
+<input id="sys" placeholder="system prompt" value="Ты лаконичный помощник. Используй LaTeX в $...$ для формул.">
+<div id="log"></div>
+<textarea id="inp" placeholder="Введи вопрос и Cmd/Ctrl+Enter"></textarea>
+<button id="btn">Отправить</button>
+<script>
+const log = document.getElementById('log');
+const history = [];
+
+function append(role, label, text){
+  const div = document.createElement('div');
+  div.className = role;
+  const lbl = document.createElement('span');
+  lbl.className = 'label';
+  lbl.textContent = label;
+  const body = document.createElement('span');
+  body.textContent = text;
+  div.appendChild(lbl);
+  div.appendChild(body);
+  log.appendChild(div);
+  return body;
+}
+
+async function send(){
+  const inp = document.getElementById('inp');
+  const sys = document.getElementById('sys').value;
+  const msg = inp.value.trim();
+  if(!msg) return;
+  inp.value = '';
+  append('me', 'Я:', msg);
+  const out = append('ai', 'AI:', '');
+  let acc = '';
+  const r = await fetch('/chat', {method:'POST', headers:{'content-type':'application/json'},
+    body: JSON.stringify({message: msg, system: sys, history})});
+  const reader = r.body.getReader();
+  const dec = new TextDecoder();
+  let buf = '';
+  while(true){
+    const {value, done} = await reader.read();
+    if(done) break;
+    buf += dec.decode(value, {stream:true});
+    let idx;
+    while((idx = buf.indexOf('\n\n')) >= 0){
+      const chunk = buf.slice(0, idx); buf = buf.slice(idx+2);
+      if(!chunk.startsWith('data: ')) continue;
+      const data = chunk.slice(6);
+      if(data === '[DONE]') break;
+      try{
+        const ev = JSON.parse(data);
+        if(ev.error){ out.textContent += '\n[ошибка] ' + ev.error; continue; }
+        if(ev.delta){ acc += ev.delta; out.textContent = acc; }
+      }catch(e){}
+    }
+  }
+  if(window.renderMathInElement) renderMathInElement(out.parentNode,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});
+  history.push({role:'user', content: msg});
+  history.push({role:'assistant', content: acc});
+}
+
+document.getElementById('btn').addEventListener('click', send);
+document.getElementById('inp').addEventListener('keydown', e=>{
+  if((e.metaKey||e.ctrlKey) && e.key==='Enter') send();
+});
+</script>
+</body>
+</html>
