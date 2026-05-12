@@ -63,3 +63,20 @@ CREATE TABLE IF NOT EXISTS ingest_meta (
     key         TEXT PRIMARY KEY,
     value       TEXT
 );
+
+-- Tichý oznam — анонимные сообщения о коррупции/харассменте
+CREATE TABLE IF NOT EXISTS reports (
+    id                  INTEGER PRIMARY KEY,
+    case_id             TEXT UNIQUE NOT NULL,
+    incident_type       TEXT NOT NULL,    -- korupcia | obtazovanie | ine
+    perpetrator_role    TEXT NOT NULL,    -- student | pedagog | zamestnanec | neviem
+    workplace           TEXT NOT NULL,    -- FEI | FIIT | SvF | SjF | FCHPT | MTF | iné
+    department          TEXT,
+    incident_date       TEXT,
+    description         TEXT NOT NULL,
+    evidence            TEXT,
+    contact_email       TEXT,             -- nullable, опциональный
+    created_at          TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_reports_case_id ON reports(case_id);
+CREATE INDEX IF NOT EXISTS idx_reports_created ON reports(created_at);

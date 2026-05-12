@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>Tichý oznam · STU</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#1a1612;
+  --paper-2:#211c17;
+  --paper-3:#2a231b;
+  --ink:#f5ede0;
+  --ink-2:#e6dcc9;
+  --muted:#8b7d6b;
+  --rule:#3a2f24;
+  --amber:#d4a04c;
+  --amber-soft:#a07a35;
+  --crimson:#a13d2d;
+  --display:'Fraunces', 'Times New Roman', serif;
+  --sans:'IBM Plex Sans', sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:16px;
+  line-height:1.55;
+  min-height:100vh;
+  /* Едва уловимая бумажная зернистость */
+  background-image:
+    radial-gradient(rgba(255,237,200,.018) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+}
+
+::selection{ background:var(--amber); color:var(--paper) }
+
+/* ─── Masthead ─── */
+.masthead{
+  border-bottom:1px solid var(--rule);
+  padding:14px 32px;
+  display:flex;
+  align-items:baseline;
+  gap:24px;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.masthead a{
+  color:var(--ink-2);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s;
+}
+.masthead a:hover{ border-color:var(--amber) }
+.masthead .vol{ margin-left:auto }
+.masthead .badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 9px;border:1px solid var(--rule);border-radius:2px;
+  color:var(--ink-2);
+}
+.masthead .badge::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 8px var(--amber);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{ 0%,100%{opacity:.5} 50%{opacity:1} }
+
+/* ─── Page grid ─── */
+.page{
+  display:grid;
+  grid-template-columns:
+    [marginalia] minmax(60px, 100px)
+    [main-start] minmax(0, 1fr) [main-end]
+    [aside-start] minmax(280px, 360px) [aside-end]
+    minmax(40px, 80px);
+  gap:48px;
+  max-width:1400px;
+  margin:0 auto;
+  padding:64px 0 120px;
+}
+
+/* Marginalia — вертикальный шифр оzнама */
+.marginalia{
+  grid-column:marginalia;
+  position:relative;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.marginalia .v{
+  position:sticky;top:140px;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  white-space:nowrap;
+  padding:20px 0;
+  border-left:1px solid var(--rule);
+  margin-left:18px;
+}
+.marginalia .v span{ color:var(--amber) }
+
+/* ─── Header (display) ─── */
+.head{
+  grid-column:main-start / main-end;
+  margin-bottom:64px;
+  opacity:0;animation:rise .8s .1s forwards cubic-bezier(.2,.7,.2,1);
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--amber);
+  margin-bottom:24px;
+  display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{
+  content:'';width:32px;height:1px;background:var(--amber);
+}
+h1.title{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:clamp(72px, 11vw, 156px);
+  line-height:.92;
+  letter-spacing:-.04em;
+  color:var(--ink);
+  font-variation-settings: 'opsz' 144, 'SOFT' 30;
+  margin-bottom:24px;
+}
+h1.title em{
+  font-style:italic;
+  font-weight:300;
+  color:var(--amber);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+}
+h1.title .dot{
+  color:var(--amber);
+  font-style:normal;
+}
+.lede{
+  font-family:var(--display);
+  font-size:clamp(20px, 2.2vw, 26px);
+  line-height:1.45;
+  font-weight:300;
+  color:var(--ink-2);
+  max-width:34ch;
+  font-variation-settings: 'opsz' 36;
+}
+.lede::first-letter{
+  font-size:1.6em;
+  font-style:italic;
+  color:var(--amber);
+  margin-right:.04em;
+}
+
+/* ─── Aside — context column ─── */
+aside.context{
+  grid-column:aside-start / aside-end;
+  padding-top:140px;
+  opacity:0;animation:rise .8s .35s forwards cubic-bezier(.2,.7,.2,1);
+}
+.ctx-card{
+  border-top:1px solid var(--rule);
+  padding:18px 0 22px;
+}
+.ctx-card .num{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.3em;
+  color:var(--amber);
+  margin-bottom:8px;
+}
+.ctx-card h4{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:18px;
+  margin-bottom:6px;
+  color:var(--ink);
+}
+.ctx-card p{
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.5;
+}
+.ctx-card p strong{ color:var(--ink-2);font-weight:500 }
+
+.law{
+  margin-top:28px;
+  padding:16px;
+  border:1px dashed var(--rule);
+  font-family:var(--display);
+  font-style:italic;
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.55;
+}
+.law cite{
+  display:block;
+  font-style:normal;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--amber-soft);
+  margin-top:8px;
+}
+
+/* ─── Form ─── */
+form{
+  grid-column:main-start / main-end;
+  display:flex;flex-direction:column;
+  gap:48px;
+  opacity:0;animation:rise .8s .55s forwards cubic-bezier(.2,.7,.2,1);
+}
+.section{
+  border-top:1px solid var(--rule);
+  padding-top:32px;
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:36px;
+}
+.section .num{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--amber);
+  padding-top:6px;
+}
+.section .body{ min-width:0 }
+.section h3{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:28px;
+  letter-spacing:-.01em;
+  margin-bottom:6px;
+  color:var(--ink);
+  font-variation-settings:'opsz' 36;
+}
+.section .hint{
+  font-size:14px;color:var(--muted);
+  margin-bottom:24px;line-height:1.55;
+}
+
+/* Segmented radio (большие плашки) */
+.segments{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:10px;
+}
+.segments label{
+  display:flex;flex-direction:column;gap:4px;
+  padding:18px 18px 16px;
+  border:1px solid var(--rule);
+  background:transparent;
+  cursor:pointer;
+  transition:border-color .2s, background .2s, transform .2s;
+  position:relative;
+}
+.segments label:hover{
+  border-color:var(--amber-soft);
+  background:rgba(212,160,76,.04);
+}
+.segments input{ position:absolute;opacity:0;pointer-events:none }
+.segments input:checked + .seg-content{ color:var(--ink) }
+.segments label:has(input:checked){
+  border-color:var(--amber);
+  background:rgba(212,160,76,.07);
+}
+.segments label:has(input:checked)::before{
+  content:'';position:absolute;top:14px;right:14px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 12px rgba(212,160,76,.6);
+}
+.seg-content .seg-title{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:18px;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+.seg-content .seg-desc{
+  font-size:12.5px;color:var(--muted);
+  line-height:1.5;
+}
+
+/* Underline-only inputs (paper feel) */
+.field{ display:flex;flex-direction:column;gap:6px;margin-bottom:24px }
+.field:last-child{ margin-bottom:0 }
+.field > label{
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="date"],
+.field select,
+.field textarea{
+  background:transparent;
+  border:none;
+  border-bottom:1px solid var(--rule);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:300;
+  padding:10px 0 12px;
+  outline:none;
+  transition:border-color .2s;
+  width:100%;
+  border-radius:0;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{ border-bottom-color:var(--amber) }
+.field textarea{
+  min-height:160px;
+  resize:vertical;
+  line-height:1.6;
+  font-family:var(--display);
+  font-size:18px;
+  font-weight:300;
+  font-variation-settings:'opsz' 24;
+}
+.field textarea::placeholder,
+.field input::placeholder{
+  color:var(--muted);
+  font-style:italic;
+  font-family:var(--display);
+}
+.field select{
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M0 0l5 6 5-6z' fill='%238b7d6b'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 4px center;
+  padding-right:24px;
+}
+.field select option{ background:var(--paper-2);color:var(--ink) }
+.field .help{ font-size:12px;color:var(--muted);margin-top:4px;font-style:italic }
+.field .counter{
+  font-family:var(--mono);
+  font-size:10px;letter-spacing:.18em;
+  color:var(--muted);text-align:right;margin-top:4px;
+}
+.field .counter.warn{ color:var(--amber) }
+.field .counter.err{ color:var(--crimson) }
+
+.row{ display:grid;grid-template-columns:1fr 1fr;gap:32px }
+
+/* Чекбокс */
+.consent{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:18px;
+  border:1px solid var(--rule);
+  cursor:pointer;
+  transition:border-color .2s, background .2s;
+}
+.consent:hover{ border-color:var(--amber-soft) }
+.consent:has(input:checked){
+  border-color:var(--amber);background:rgba(212,160,76,.05);
+}
+.consent input{
+  appearance:none;-webkit-appearance:none;
+  width:18px;height:18px;
+  border:1px solid var(--muted);
+  background:transparent;
+  cursor:pointer;
+  flex-shrink:0;
+  margin-top:2px;
+  position:relative;
+  transition:border-color .2s, background .2s;
+  border-radius:0;
+}
+.consent input:checked{ border-color:var(--amber);background:var(--amber) }
+.consent input:checked::after{
+  content:'✓';position:absolute;
+  top:-3px;left:2px;
+  color:var(--paper);font-size:14px;font-weight:700;
+  font-family:var(--mono);
+}
+.consent .ct{ font-size:14px;color:var(--ink-2);line-height:1.55 }
+.consent .ct strong{ color:var(--ink);font-weight:500 }
+
+/* Submit row */
+.submit-row{
+  border-top:1px solid var(--rule);
+  padding-top:32px;
+  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
+}
+button.submit{
+  background:var(--amber);
+  color:var(--paper);
+  border:none;
+  padding:24px 48px;
+  font-family:var(--display);
+  font-size:24px;
+  font-weight:400;
+  font-variation-settings:'opsz' 36;
+  cursor:pointer;
+  letter-spacing:-.005em;
+  transition:transform .2s, background .2s, box-shadow .2s;
+  position:relative;
+  border-radius:0;
+}
+button.submit:hover{
+  background:#e0b15c;
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px -10px rgba(212,160,76,.4);
+}
+button.submit:active{ transform:translateY(0) }
+button.submit:disabled{
+  background:var(--rule);color:var(--muted);
+  cursor:not-allowed;transform:none;box-shadow:none;
+}
+button.submit .arrow{
+  display:inline-block;margin-left:12px;
+  transition:transform .25s;
+}
+button.submit:hover .arrow{ transform:translate(4px,-4px) }
+.submit-row .meta{
+  font-family:var(--mono);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);
+}
+.submit-row .meta b{ color:var(--ink-2);font-weight:500 }
+
+.error-banner{
+  border:1px solid var(--crimson);
+  background:rgba(161,61,45,.08);
+  color:#ffb5a5;
+  padding:14px 18px;
+  font-size:14px;
+  display:none;
+}
+.error-banner.show{ display:block }
+
+/* ─── Success state ─── */
+.success{
+  grid-column:main-start / aside-end;
+  padding:56px 0 0;
+  display:none;
+  opacity:0;
+}
+.success.show{ display:block;animation:rise .8s .1s forwards cubic-bezier(.2,.7,.2,1) }
+.success .eyebrow::before{ background:#5cb878 }
+.success .eyebrow{ color:#5cb878 }
+.success h2{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:clamp(56px, 8vw, 110px);
+  line-height:.95;
+  letter-spacing:-.03em;
+  color:var(--ink);
+  margin-bottom:32px;
+  font-variation-settings:'opsz' 144, 'SOFT' 60;
+}
+.success h2 em{ color:#5cb878;font-style:italic;font-weight:300 }
+.success-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  margin-top:40px;
+  padding-top:32px;
+  border-top:1px solid var(--rule);
+}
+.case-box{
+  padding:28px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+}
+.case-box .lbl{
+  font-family:var(--mono);
+  font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.case-id{
+  font-family:var(--mono);
+  font-size:42px;
+  font-weight:700;
+  color:var(--amber);
+  letter-spacing:.04em;
+  margin-bottom:14px;
+  user-select:all;
+}
+.case-box .copy{
+  background:transparent;border:1px solid var(--rule);
+  color:var(--ink-2);
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  padding:8px 14px;cursor:pointer;
+  transition:border-color .2s, color .2s;
+}
+.case-box .copy:hover{ border-color:var(--amber);color:var(--amber) }
+.case-box .copy.done{ border-color:#5cb878;color:#5cb878 }
+.next{ font-family:var(--display);font-size:17px;line-height:1.6;color:var(--ink-2) }
+.next h4{
+  font-family:var(--mono);
+  font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;font-weight:500;
+}
+.next ol{ padding-left:1.2em }
+.next li{ margin-bottom:10px }
+
+@keyframes rise{
+  from{opacity:0;transform:translateY(16px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+
+/* ─── Footer ─── */
+footer{
+  border-top:1px solid var(--rule);
+  margin-top:80px;
+  padding:32px;
+  font-family:var(--mono);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);
+  display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+}
+footer .col{ flex:1 }
+footer a{ color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule) }
+footer a:hover{ border-color:var(--amber);color:var(--amber) }
+
+@media (max-width: 980px){
+  .page{
+    grid-template-columns: 24px 1fr 24px;
+    gap:0;
+    padding:40px 0 80px;
+  }
+  .marginalia{ display:none }
+  .head, form, aside.context, .success{
+    grid-column:2 / 3;
+  }
+  aside.context{ padding-top:48px }
+  .row{ grid-template-columns:1fr;gap:24px }
+  .section{ grid-template-columns:1fr;gap:16px }
+  .section .num{ padding-top:0 }
+  .success-grid{ grid-template-columns:1fr;gap:24px }
+}
+</style>
+</head>
+
+<body>
+<div class="masthead">
+  <a href="/">← RPVS Detective</a>
+  <span>Vol. I · Bratislava · MMXXVI</span>
+  <span class="vol">
+    <span class="badge">anonymné · TLS · 0 trackers</span>
+  </span>
+</div>
+
+<main class="page">
+  <div class="marginalia">
+    <div class="v">Tichý oznam <span>·</span> oznamovateľ <span>·</span> ochrana podľa zákona</div>
+  </div>
+
+  <header class="head">
+    <div class="eyebrow">Verejné oznámenie · 2026</div>
+    <h1 class="title">Tichý<br>oznam<span class="dot">.</span></h1>
+    <p class="lede">Anonymné nahlásenie korupcie, obťažovania alebo konfliktu záujmov na pôde STU. Bez mena, bez evidencie IP, bez tretích strán.</p>
+  </header>
+
+  <aside class="context">
+    <div class="ctx-card">
+      <div class="num">01</div>
+      <h4>Anonymita ako pravidlo</h4>
+      <p>Nezbierame IP adresy, User-Agent ani cookies. <strong>Identifikujeme len to, čo napíšeš sám.</strong></p>
+    </div>
+    <div class="ctx-card">
+      <div class="num">02</div>
+      <h4>Tvoj kód prípadu</h4>
+      <p>Po odoslaní dostaneš <strong>6-znakový kód</strong>, ktorým prípad môžeš sledovať. Kód existuje len u teba — nestrať ho.</p>
+    </div>
+    <div class="ctx-card">
+      <div class="num">03</div>
+      <h4>Postup po odoslaní</h4>
+      <p>Oznam dostane etická komisia STU + kontakt v rektoráte. Bez tvojho súhlasu nikto neotvorí ďalšiu korešpondenciu.</p>
+    </div>
+    <div class="law">
+      „Oznamovateľ má právo na ochranu identity, ak v dobrej viere nahlási podozrenie z protispoločenskej činnosti."
+      <cite>— § 3, zákon č. 54/2019 Z.z.</cite>
+    </div>
+  </aside>
+
+  <form id="report-form" novalidate>
+    <div class="error-banner" id="err"></div>
+
+    <section class="section">
+      <div class="num">§ 01</div>
+      <div class="body">
+        <h3>O čom oznam je</h3>
+        <p class="hint">Vyber najbližšiu kategóriu. Detaily napíšeš nižšie.</p>
+        <div class="segments" data-name="incident_type">
+          <label>
+            <input type="radio" name="incident_type" value="korupcia" required>
+            <div class="seg-content">
+              <div class="seg-title">Korupcia</div>
+              <div class="seg-desc">úplatok, manipulácia výberového konania, zaplatená známka</div>
+            </div>
+          </label>
+          <label>
+            <input type="radio" name="incident_type" value="obtazovanie">
+            <div class="seg-content">
+              <div class="seg-title">Obťažovanie</div>
+              <div class="seg-desc">sexuálne, mocenské, psychické — vrátane šikany od spolužiakov</div>
+            </div>
+          </label>
+          <label>
+            <input type="radio" name="incident_type" value="konflikt_zaujmov">
+            <div class="seg-content">
+              <div class="seg-title">Konflikt záujmov</div>
+              <div class="seg-desc">rodinné väzby, zákazky, hodnotenie príbuzných</div>
+            </div>
+          </label>
+          <label>
+            <input type="radio" name="incident_type" value="ine">
+            <div class="seg-content">
+              <div class="seg-title">Iné</div>
+              <div class="seg-desc">nehodí sa ani jedna kategória — opíš v texte</div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="num">§ 02</div>
+      <div class="body">
+        <h3>Kto je páchateľ</h3>
+        <p class="hint">V akej role na STU pôsobí. Ak ich je viac, vyber „neviem / viacero".</p>
+        <div class="segments" data-name="perpetrator_role">
+          <label>
+            <input type="radio" name="perpetrator_role" value="student" required>
+            <div class="seg-content"><div class="seg-title">Študent</div></div>
+          </label>
+          <label>
+            <input type="radio" name="perpetrator_role" value="pedagog">
+            <div class="seg-content"><div class="seg-title">Pedagóg</div></div>
+          </label>
+          <label>
+            <input type="radio" name="perpetrator_role" value="zamestnanec">
+            <div class="seg-content"><div class="seg-title">Zamestnanec STU</div></div>
+          </label>
+          <label>
+            <input type="radio" name="perpetrator_role" value="neviem">
+            <div class="seg-content"><div class="seg-title">Neviem / viacero</div></div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="num">§ 03</div>
+      <div class="body">
+        <h3>Kde sa to stalo</h3>
+        <div class="row">
+          <div class="field">
+            <label for="workplace">Fakulta / pracovisko</label>
+            <select id="workplace" name="workplace" required>
+              <option value="" disabled selected>vyber…</option>
+              <option value="FEI">FEI STU — elektrotechnika &amp; informatika</option>
+              <option value="FIIT">FIIT STU — informatika</option>
+              <option value="SvF">SvF STU — stavebná</option>
+              <option value="SjF">SjF STU — strojnícka</option>
+              <option value="FCHPT">FCHPT STU — chémia &amp; potraviny</option>
+              <option value="MTF">MTF STU — Trnava</option>
+              <option value="FA">FA STU — architektúra</option>
+              <option value="STU-rektorat">Rektorát STU</option>
+              <option value="ine">Iné / neviem</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="department">Katedra / predmet (ak vieš)</label>
+            <input type="text" id="department" name="department" placeholder="napr. Katedra mat., Matematika 1, blok A — opcionálne">
+          </div>
+        </div>
+        <div class="field">
+          <label for="incident_date">Dátum udalosti (alebo približne)</label>
+          <input type="date" id="incident_date" name="incident_date">
+          <div class="help">opcionálne — ak ti záleží na časovom rade</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="num">§ 04</div>
+      <div class="body">
+        <h3>Čo sa stalo</h3>
+        <p class="hint">Fakty, dátumy, miesta. Nepiš to, čo nevieš overiť. Min. 20 znakov.</p>
+        <div class="field">
+          <label for="description">Popis</label>
+          <textarea id="description" name="description" required minlength="20" maxlength="8000"
+            placeholder="Začni od konkrétneho momentu — kde, kedy, kto. Vyhni sa špekuláciám…"></textarea>
+          <div class="counter" id="desc-counter">0 / 8000</div>
+        </div>
+        <div class="field">
+          <label for="evidence">Dôkazy, svedkovia, odkazy <span style="color:var(--muted);text-transform:none;letter-spacing:0">— opcionálne</span></label>
+          <textarea id="evidence" name="evidence" maxlength="4000"
+            placeholder="Linky, screenshoty (popíš obsah), mená svedkov, čísla zmlúv…"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="num">§ 05</div>
+      <div class="body">
+        <h3>Spätná väzba <span style="font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-left:12px">opcionálne</span></h3>
+        <p class="hint">Email použijeme <em>iba</em> ak potrebujeme upresnenie. Inak nechaj prázdne.</p>
+        <div class="field">
+          <label for="contact_email">E-mail (anonymný funguje tiež)</label>
+          <input type="email" id="contact_email" name="contact_email" placeholder="napr. tichy.oznam@protonmail.com">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="num">§ 06</div>
+      <div class="body">
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span class="ct"><strong>Súhlasím</strong>, aby bol oznam uchovaný a postúpený etickej komisii STU. Beriem na vedomie, že podľa zákona č. 54/2019 Z.z. mám právo na ochranu identity, ak oznam podávam v dobrej viere.</span>
+        </label>
+      </div>
+    </section>
+
+    <div class="submit-row">
+      <button type="submit" class="submit" id="submit-btn">
+        Odoslať tichý oznam <span class="arrow">↳</span>
+      </button>
+      <div class="meta">odošle sa <b>šifrovane</b> · žiadne tretie strany</div>
+    </div>
+  </form>
+
+  <section class="success" id="success" aria-live="polite">
+    <div class="eyebrow">Oznam zaregistrovaný · ďakujeme</div>
+    <h2>Prijaté.<br><em>Tvoj kód:</em></h2>
+    <div class="success-grid">
+      <div class="case-box">
+        <div class="lbl">Identifikátor prípadu</div>
+        <div class="case-id" id="case-id">ZK-XXXXXX</div>
+        <button class="copy" id="copy-btn">kopírovať kód</button>
+      </div>
+      <div class="next">
+        <h4>Čo s ním ďalej</h4>
+        <ol>
+          <li>Ulož si kód <strong>mimo tohto zariadenia</strong> — papierik, password manager.</li>
+          <li>Komisia spracuje oznam do <strong>14 dní</strong>; ak si zadal e-mail, ozveme sa.</li>
+          <li>Ak hrozí bezprostredné ohrozenie, zavolaj <strong>112</strong> alebo prokuratúru.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="col">RPVS Detective · Tichý oznam — civic-tech prototyp</span>
+  <span>Master of VibeCoding · FEI STU × UMIKT × PosAm · 2026</span>
+  <a href="/">← späť na pátranie</a>
+</footer>
+
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const form = $('#report-form');
+const errBanner = $('#err');
+const submitBtn = $('#submit-btn');
+const desc = $('#description');
+const counter = $('#desc-counter');
+
+desc.addEventListener('input', () => {
+  const n = desc.value.length;
+  counter.textContent = `${n.toLocaleString()} / 8000`;
+  counter.classList.toggle('warn', n > 7200);
+  counter.classList.toggle('err',  n >= 8000);
+});
+
+function showError(msg){
+  errBanner.textContent = msg;
+  errBanner.classList.add('show');
+  errBanner.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function hideError(){ errBanner.classList.remove('show') }
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  hideError();
+
+  const payload = {
+    incident_type:    form.incident_type.value || null,
+    perpetrator_role: form.perpetrator_role.value || null,
+    workplace:        form.workplace.value || null,
+    department:       (form.department.value || '').trim() || null,
+    incident_date:    form.incident_date.value || null,
+    description:      desc.value.trim(),
+    evidence:         (form.evidence.value || '').trim() || null,
+    contact_email:    (form.contact_email.value || '').trim() || null,
+  };
+
+  if(!payload.incident_type)    return showError('Vyber typ oznamu (§ 01).');
+  if(!payload.perpetrator_role) return showError('Vyber rolu páchateľa (§ 02).');
+  if(!payload.workplace)        return showError('Vyber pracovisko (§ 03).');
+  if(payload.description.length < 20) return showError('Popis musí mať aspoň 20 znakov (§ 04).');
+  if(!$('#consent').checked)    return showError('Potrebujeme tvoj súhlas (§ 06).');
+
+  submitBtn.disabled = true;
+  submitBtn.firstChild.textContent = 'odosielam… ';
+
+  try{
+    const r = await fetch('/api/report', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload),
+    });
+    const data = await r.json();
+    if(!r.ok){
+      showError(data.detail || 'Server odpovedal chybou. Skús neskôr.');
+      submitBtn.disabled = false;
+      submitBtn.firstChild.textContent = 'Odoslať tichý oznam ';
+      return;
+    }
+    form.style.display = 'none';
+    document.querySelector('aside.context').style.display = 'none';
+    $('#case-id').textContent = data.case_id;
+    $('#success').classList.add('show');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }catch(err){
+    showError('Chyba siete: ' + err.message);
+    submitBtn.disabled = false;
+    submitBtn.firstChild.textContent = 'Odoslať tichý oznam ';
+  }
+});
+
+$('#copy-btn').addEventListener('click', async () => {
+  const cid = $('#case-id').textContent;
+  try{
+    await navigator.clipboard.writeText(cid);
+    const b = $('#copy-btn');
+    b.textContent = 'skopírované ✓';
+    b.classList.add('done');
+    setTimeout(() => { b.textContent = 'kopírovať kód'; b.classList.remove('done') }, 2200);
+  }catch{}
+});
+</script>
+</body>
+</html>

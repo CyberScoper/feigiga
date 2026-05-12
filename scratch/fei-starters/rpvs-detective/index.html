@@ -18,6 +18,24 @@ header{display:flex;align-items:center;gap:12px;padding:10px 14px;
 header h1{margin:0;font-size:16px;font-weight:600;letter-spacing:.3px}
 header .stats{margin-left:auto;color:var(--muted);font-size:12px}
 header .stats span{color:var(--text);margin:0 4px}
+header .oznam{
+  margin-left:14px;padding:6px 12px;border:1px solid #d4a04c;
+  color:#d4a04c;text-decoration:none;font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;border-radius:3px;
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:ui-monospace,SF Mono,Menlo,monospace;
+  transition:background .2s, color .2s;
+}
+header .oznam:hover{ background:#d4a04c;color:#0e1116 }
+header .oznam .pulse{
+  width:6px;height:6px;border-radius:50%;background:#d4a04c;
+  box-shadow:0 0 8px #d4a04c;
+  animation:oznampulse 2.4s infinite;
+}
+@keyframes oznampulse{ 0%,100%{opacity:.5} 50%{opacity:1} }
+header .oznam:hover .pulse{ background:#0e1116;box-shadow:none }
+header .oznam .ct{ color:#8b7d6b;font-size:10px;margin-left:2px }
+header .oznam:hover .ct{ color:#0e1116 }
 main{display:grid;grid-template-columns:300px 1fr 360px;height:calc(100vh - 52px)}
 #left,#right{overflow:auto;border-right:1px solid var(--line);background:var(--panel)}
 #right{border-right:none;border-left:1px solid var(--line)}
@@ -70,6 +88,11 @@ main{display:grid;grid-template-columns:300px 1fr 360px;height:calc(100vh - 52px
 <header>
   <h1>🔎 RPVS Detective</h1>
   <div class="stats" id="stats">načítavam…</div>
+  <a href="/report" class="oznam" title="Anonymne nahlás korupciu / obťažovanie na STU">
+    <span class="pulse"></span>
+    Tichý oznam
+    <span class="ct" id="oznam-count"></span>
+  </a>
 </header>
 
 <main>
@@ -302,8 +325,16 @@ $('#r-ai').onclick = async () => {
   btn.disabled = false; btn.textContent = '🧠 AI rizikové zhrnutie';
 };
 
+async function loadOznamCount(){
+  try{
+    const s = await (await fetch('/api/report/stats')).json();
+    if(s.total > 0) $('#oznam-count').textContent = '· ' + s.total;
+  }catch{}
+}
+
 initCy();
 loadStats();
+loadOznamCount();
 </script>
 </body>
 </html>

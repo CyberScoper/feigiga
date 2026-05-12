@@ -1,21 +1,34 @@
 #!/usr/bin/env python3
 """RPVS Detective — FastAPI бэк. Отдаёт поиск, детали партнёра и JSON-граф для cytoscape."""
 from __future__ import annotations
-import os, sqlite3, subprocess
+import secrets, sqlite3, subprocess
 from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse
+from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).parent
 DB = ROOT / "rpvs.db"
 INDEX = ROOT / "index.html"
+REPORT_PAGE = ROOT / "report.html"
+SCHEMA = ROOT / "schema.sql"
 
 app = FastAPI(title="RPVS Detective")
 
 
 def db() -> sqlite3.Connection:
+    # Schema идемпотентна (CREATE IF NOT EXISTS) — применяем всегда,
+    # чтобы добавленные позже таблицы (например reports) появились без переезда БД.
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+    conn.executescript(SCHEMA.read_text())
+    return conn
+
+
+def db_ingested() -> sqlite3.Connection:
+    """Версия для эндпоинтов, требующих залитого RPVS."""
     if not DB.exists():
         raise HTTPException(503, "rpvs.db ещё не создан — запусти ingest.py")
     conn = sqlite3.connect(DB)
@@ -28,6 +41,11 @@ def index() -> FileResponse:
     return FileResponse(INDEX)
 
 
+@app.get("/report")
+def report_page() -> FileResponse:
+    return FileResponse(REPORT_PAGE)
+
+
 @app.get("/healthz")
 def healthz() -> dict:
     return {"ok": True, "db": DB.exists()}
@@ -35,7 +53,7 @@ def healthz() -> dict:
 
 @app.get("/stats")
 def stats() -> dict:
-    with db() as c:
+    with db_ingested() as c:
         return {
             "partners":  c.execute("SELECT COUNT(*) FROM partners").fetchone()[0],
             "persons":   c.execute("SELECT COUNT(*) FROM persons").fetchone()[0],
@@ -55,7 +73,7 @@ def _fts_query(q: str) -> str:
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), limit: int = 25) -> dict:
     fts = _fts_query(q)
-    with db() as c:
+    with db_ingested() as c:
         persons = [dict(r) for r in c.execute(
             "SELECT p.id, p.partner_id, p.role, p.meno, p.priezvisko, "
             "       p.datum_narodenia, p.je_verejny_cinitel "
@@ -76,7 +94,7 @@ def search(q: str = Query(..., min_length=2), limit: int = 25) -> dict:
 
 @app.get("/partner/{partner_id}")
 def partner(partner_id: int) -> dict:
-    with db() as c:
+    with db_ingested() as c:
         row = c.execute(
             "SELECT id, cislo_vlozky FROM partners WHERE id=?", (partner_id,)
         ).fetchone()
@@ -100,7 +118,7 @@ def partner(partner_id: int) -> dict:
 def partner_graph(partner_id: int, depth: int = Query(1, ge=1, le=2)) -> dict:
     """JSON для cytoscape: nodes + edges. depth=1 — одна ячейка, depth=2 — соседи через
     общую персону (та же фамилия/имя/дата рождения) или общий IČO."""
-    with db() as c:
+    with db_ingested() as c:
         seed = c.execute("SELECT 1 FROM partners WHERE id=?", (partner_id,)).fetchone()
         if not seed:
             raise HTTPException(404)
@@ -217,3 +235,75 @@ def _format_for_llm(d: dict) -> str:
         lines.append(f"  - [{pe['role']}] {pe['titul_pred'] or ''} {pe['meno'] or ''} "
                      f"{pe['priezvisko'] or ''}{flag}, dátum nar.: {pe['datum_narodenia'] or '?'}")
     return "\n".join(lines)
+
+
+# ───────────────────────── TICHÝ OZNAM ─────────────────────────
+# Анонимные сообщения о коррупции / харассменте на STU.
+# Принципиально: не логируем IP, не сохраняем User-Agent, не cookies.
+
+INCIDENT_TYPES   = {"korupcia", "obtazovanie", "konflikt_zaujmov", "ine"}
+PERPETRATOR_ROLES = {"student", "pedagog", "zamestnanec", "neviem"}
+WORKPLACES       = {"FEI", "FIIT", "SvF", "SjF", "FCHPT", "MTF", "FA", "STU-rektorat", "ine"}
+
+_CASE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"  # без 0/O/I/1/L
+
+
+def _generate_case_id() -> str:
+    """6-знач. читаемый код вроде ZK-7H3MQ4."""
+    raw = "".join(secrets.choice(_CASE_ALPHABET) for _ in range(6))
+    return f"ZK-{raw}"
+
+
+class ReportIn(BaseModel):
+    incident_type:    str  = Field(..., description="korupcia | obtazovanie | konflikt_zaujmov | ine")
+    perpetrator_role: str  = Field(..., description="student | pedagog | zamestnanec | neviem")
+    workplace:        str  = Field(..., description="FEI | FIIT | SvF | …")
+    department:       str | None = None
+    incident_date:    str | None = None
+    description:      str  = Field(..., min_length=20, max_length=8000)
+    evidence:         str | None = Field(default=None, max_length=4000)
+    contact_email:    str | None = Field(default=None, max_length=200)
+
+
+@app.post("/api/report")
+def submit_report(r: ReportIn) -> dict:
+    if r.incident_type not in INCIDENT_TYPES:
+        raise HTTPException(422, f"incident_type musí byť jeden z: {sorted(INCIDENT_TYPES)}")
+    if r.perpetrator_role not in PERPETRATOR_ROLES:
+        raise HTTPException(422, f"perpetrator_role musí byť jeden z: {sorted(PERPETRATOR_ROLES)}")
+    if r.workplace not in WORKPLACES:
+        raise HTTPException(422, f"workplace musí byť jeden z: {sorted(WORKPLACES)}")
+
+    # Гарантируем уникальный case_id (вероятность коллизии астрономически мала, но perевírим)
+    with db() as c:
+        for _ in range(5):
+            cid = _generate_case_id()
+            try:
+                c.execute(
+                    "INSERT INTO reports (case_id, incident_type, perpetrator_role, "
+                    "workplace, department, incident_date, description, evidence, contact_email) "
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (cid, r.incident_type, r.perpetrator_role, r.workplace,
+                     r.department or None, r.incident_date or None,
+                     r.description.strip(), (r.evidence or "").strip() or None,
+                     (r.contact_email or "").strip() or None),
+                )
+                c.commit()
+                return {"ok": True, "case_id": cid}
+            except sqlite3.IntegrityError:
+                continue
+        raise HTTPException(500, "nepodarilo sa vygenerovať jedinečný case_id")
+
+
+@app.get("/api/report/stats")
+def report_stats() -> dict:
+    """Анонимная агрегация — для счётчика на главной."""
+    with db() as c:
+        total = c.execute("SELECT COUNT(*) FROM reports").fetchone()[0]
+        last_30 = c.execute(
+            "SELECT COUNT(*) FROM reports WHERE created_at >= datetime('now','-30 days')"
+        ).fetchone()[0]
+        by_type = {row[0]: row[1] for row in c.execute(
+            "SELECT incident_type, COUNT(*) FROM reports GROUP BY incident_type"
+        )}
+    return {"total": total, "last_30_days": last_30, "by_type": by_type}
