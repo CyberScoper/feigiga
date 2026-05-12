@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>RPVS Detective</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<style>
+:root{
+  --bg:#0e1116; --panel:#161b22; --line:#2a313c; --text:#e6edf3; --muted:#8b949e;
+  --accent:#58a6ff; --warn:#ff7b72; --ok:#3fb950; --pvs:#bc8cff; --oo:#79c0ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
+  font:14px/1.4 -apple-system,Segoe UI,Roboto,sans-serif}
+header{display:flex;align-items:center;gap:12px;padding:10px 14px;
+  background:var(--panel);border-bottom:1px solid var(--line)}
+header h1{margin:0;font-size:16px;font-weight:600;letter-spacing:.3px}
+header .stats{margin-left:auto;color:var(--muted);font-size:12px}
+header .stats span{color:var(--text);margin:0 4px}
+main{display:grid;grid-template-columns:300px 1fr 360px;height:calc(100vh - 52px)}
+#left,#right{overflow:auto;border-right:1px solid var(--line);background:var(--panel)}
+#right{border-right:none;border-left:1px solid var(--line)}
+#center{position:relative;background:#0a0d12}
+#cy{position:absolute;inset:0}
+.search{padding:10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1}
+.search input{width:100%;padding:8px 10px;border-radius:6px;border:1px solid var(--line);
+  background:#0a0d12;color:var(--text);font-size:14px;outline:none}
+.search input:focus{border-color:var(--accent)}
+.results{padding:8px}
+.results h3{font-size:11px;text-transform:uppercase;letter-spacing:.5px;
+  color:var(--muted);margin:12px 6px 6px}
+.row{padding:7px 8px;border-radius:5px;cursor:pointer;display:flex;
+  justify-content:space-between;gap:8px;align-items:center}
+.row:hover{background:#21262d}
+.row .meta{color:var(--muted);font-size:11px}
+.row .pep{color:var(--warn);font-size:11px;font-weight:600;flex-shrink:0}
+.empty{padding:20px;text-align:center;color:var(--muted);font-size:12px}
+.controls{position:absolute;top:10px;left:10px;z-index:2;display:flex;gap:6px}
+.controls button{padding:5px 10px;background:var(--panel);border:1px solid var(--line);
+  color:var(--text);border-radius:4px;cursor:pointer;font-size:12px}
+.controls button:hover{border-color:var(--accent)}
+.controls button.on{background:#1f6feb;border-color:#1f6feb}
+#right .head{padding:12px 14px;border-bottom:1px solid var(--line)}
+#right .head .title{font-weight:600;font-size:15px}
+#right .head .sub{color:var(--muted);font-size:12px;margin-top:2px}
+#right .body{padding:8px 14px}
+#right .body h4{font-size:11px;text-transform:uppercase;color:var(--muted);
+  letter-spacing:.5px;margin:14px 0 6px}
+#right .body .item{padding:6px 8px;background:#0a0d12;border:1px solid var(--line);
+  border-radius:5px;margin-bottom:5px;font-size:13px}
+#right .body .item .role{font-size:10px;text-transform:uppercase;color:var(--muted);
+  margin-right:6px}
+#right .body .item.pep{border-color:var(--warn)}
+#right .body .item .meta{color:var(--muted);font-size:11px}
+#right .ai{padding:10px 14px;border-top:1px solid var(--line)}
+#right .ai button{width:100%;padding:8px;background:#1f6feb;color:white;
+  border:none;border-radius:5px;cursor:pointer;font-size:13px;font-weight:500}
+#right .ai button:disabled{opacity:.5;cursor:wait}
+#right .ai .out{margin-top:10px;font-size:13px;line-height:1.5;white-space:pre-wrap;
+  background:#0a0d12;padding:10px;border-radius:5px;border:1px solid var(--line);
+  max-height:400px;overflow:auto}
+.legend{position:absolute;bottom:10px;left:10px;display:flex;gap:14px;font-size:11px;
+  color:var(--muted);background:rgba(14,17,22,.85);padding:6px 10px;border-radius:6px}
+.legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;
+  vertical-align:middle}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔎 RPVS Detective</h1>
+  <div class="stats" id="stats">načítavam…</div>
+</header>
+
+<main>
+  <aside id="left">
+    <div class="search">
+      <input id="q" placeholder="Hľadaj meno / IČO / firmu…" autocomplete="off">
+    </div>
+    <div class="results" id="results">
+      <div class="empty">zadaj aspoň 2 znaky</div>
+    </div>
+  </aside>
+
+  <section id="center">
+    <div class="controls">
+      <button id="depth1" class="on">Hĺbka 1</button>
+      <button id="depth2">Hĺbka 2 (krížové väzby)</button>
+      <button id="fit">Fit</button>
+    </div>
+    <div id="cy"></div>
+    <div class="legend">
+      <span><span class="dot" style="background:#3fb950"></span>vložka (Partner)</span>
+      <span><span class="dot" style="background:#bc8cff"></span>PVS (subjekt)</span>
+      <span><span class="dot" style="background:#79c0ff"></span>OO (právnik)</span>
+      <span><span class="dot" style="background:#e6edf3"></span>osoba</span>
+      <span><span class="dot" style="background:#ff7b72"></span>verejný činiteľ (PEP)</span>
+    </div>
+  </section>
+
+  <aside id="right">
+    <div class="head">
+      <div class="title" id="r-title">Vyber partnera</div>
+      <div class="sub" id="r-sub">…alebo začni vyhľadávaním</div>
+    </div>
+    <div class="body" id="r-body"></div>
+    <div class="ai">
+      <button id="r-ai" disabled>🧠 AI rizikové zhrnutie</button>
+      <div class="out" id="r-out" style="display:none"></div>
+    </div>
+  </aside>
+</main>
+
+<script>
+"use strict";
+const $ = sel => document.querySelector(sel);
+let currentPartnerId = null;
+let depth = 1;
+
+// XSS-safe builder: tag('div', {class:'foo'}, [tag('b', null, ['hello'])])
+function tag(name, attrs, children){
+  const el = document.createElement(name);
+  if(attrs) for(const k in attrs){
+    if(k === 'dataset') for(const dk in attrs.dataset) el.dataset[dk] = attrs.dataset[dk];
+    else if(k === 'style') el.setAttribute('style', attrs[k]);
+    else if(k === 'class') el.className = attrs[k];
+    else if(k.startsWith('on')) el[k] = attrs[k];
+    else el.setAttribute(k, attrs[k]);
+  }
+  if(children) for(const c of children) el.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  return el;
+}
+function clear(el){ while(el.firstChild) el.removeChild(el.firstChild); }
+
+async function loadStats(){
+  const s = await (await fetch('/stats')).json();
+  const el = $('#stats'); clear(el);
+  const span = (txt, color) => tag('span', color ? {style:'color:'+color} : null, [String(txt)]);
+  el.appendChild(document.createTextNode('partneri '));
+  el.appendChild(span(s.partners.toLocaleString()));
+  el.appendChild(document.createTextNode(' · osoby '));
+  el.appendChild(span(s.persons.toLocaleString()));
+  el.appendChild(document.createTextNode(' · firmy '));
+  el.appendChild(span(s.companies.toLocaleString()));
+  el.appendChild(document.createTextNode(' · '));
+  el.appendChild(tag('span', {style:'color:var(--warn)'}, ['PEP '+s.verejni_cinitelia]));
+}
+
+let searchTimer;
+$('#q').addEventListener('input', e => {
+  clearTimeout(searchTimer);
+  const q = e.target.value.trim();
+  const out = $('#results'); clear(out);
+  if(q.length < 2){ out.appendChild(tag('div',{class:'empty'},['zadaj aspoň 2 znaky'])); return; }
+  searchTimer = setTimeout(() => doSearch(q), 200);
+});
+
+async function doSearch(q){
+  const r = await (await fetch('/search?q='+encodeURIComponent(q))).json();
+  const out = $('#results'); clear(out);
+
+  const renderRow = (label, metaText, pid, peClass) => {
+    const left = tag('div', null, [
+      label,
+      tag('div',{class:'meta'},[metaText]),
+    ]);
+    const children = [left];
+    if(peClass) children.push(tag('span',{class:'pep'},['PEP']));
+    const row = tag('div',{class:'row', dataset:{pid:String(pid)},
+      onclick: () => loadPartner(pid)}, children);
+    out.appendChild(row);
+  };
+
+  if(r.persons.length){
+    out.appendChild(tag('h3', null, ['Osoby ('+r.persons.length+')']));
+    for(const p of r.persons){
+      const name = [p.titul_pred, p.meno, p.priezvisko].filter(Boolean).join(' ') || '(?)';
+      const dob = p.datum_narodenia ? ' · '+p.datum_narodenia.slice(0,10) : '';
+      renderRow(name, p.role.toUpperCase()+dob, p.partner_id, !!p.je_verejny_cinitel);
+    }
+  }
+  if(r.companies.length){
+    out.appendChild(tag('h3', null, ['Firmy ('+r.companies.length+')']));
+    for(const c of r.companies){
+      const name = c.obchodne_meno || '(bez názvu)';
+      renderRow(name, c.role.toUpperCase()+' · IČO '+(c.ico || '?'), c.partner_id, false);
+    }
+  }
+  if(!r.persons.length && !r.companies.length)
+    out.appendChild(tag('div',{class:'empty'},['nič nenájdené']));
+}
+
+let cy;
+function initCy(){
+  cy = cytoscape({
+    container: $('#cy'),
+    style: [
+      { selector:'node', style:{
+          'label':'data(label)', 'color':'#e6edf3', 'font-size':11,
+          'text-valign':'bottom', 'text-margin-y':6,
+          'background-color':'#8b949e', 'width':28, 'height':28,
+          'text-outline-width':2, 'text-outline-color':'#0a0d12',
+          'text-wrap':'wrap','text-max-width':140 } },
+      { selector:'node[kind="partner"]', style:{ 'background-color':'#3fb950', 'shape':'round-rectangle', 'width':36,'height':28 } },
+      { selector:'node[kind="company"]', style:{ 'background-color':'#bc8cff', 'shape':'round-rectangle' } },
+      { selector:'node[kind="company"][role="oo"]', style:{ 'background-color':'#79c0ff' } },
+      { selector:'node[kind="person"]', style:{ 'background-color':'#e6edf3', 'shape':'ellipse' } },
+      { selector:'node[kind="person"][?cinitel]', style:{ 'background-color':'#ff7b72', 'border-width':2, 'border-color':'#ffa198' } },
+      { selector:'edge', style:{
+          'width':1.5, 'line-color':'#2a313c', 'curve-style':'bezier',
+          'target-arrow-shape':'none' } },
+      { selector:'edge[role="pvs"]', style:{ 'line-color':'#bc8cff' } },
+      { selector:'edge[role="oo"]',  style:{ 'line-color':'#79c0ff', 'line-style':'dashed' } },
+      { selector:'edge[role="kuv"]', style:{ 'line-color':'#e6edf3' } },
+      { selector:'edge[role="vf"]',  style:{ 'line-color':'#ff7b72' } },
+      { selector:'node:selected', style:{ 'border-width':3, 'border-color':'#58a6ff' } },
+    ],
+    layout:{ name:'cose', animate:false, idealEdgeLength:90, nodeOverlap:20 },
+  });
+  cy.on('tap', 'node[kind="partner"]', evt => {
+    const id = +evt.target.id().slice(2);
+    loadPartner(id);
+  });
+}
+
+async function loadPartner(pid){
+  currentPartnerId = pid;
+  const [det, gr] = await Promise.all([
+    fetch('/partner/'+pid).then(r=>r.json()),
+    fetch('/partner/'+pid+'/graph?depth='+depth).then(r=>r.json()),
+  ]);
+  renderRight(det);
+  renderGraph(gr, pid);
+  $('#r-ai').disabled = false;
+  $('#r-out').style.display = 'none';
+}
+
+function renderRight(d){
+  const p = d.partner;
+  $('#r-title').textContent = `Vložka #${p.id}`;
+  $('#r-sub').textContent = `číslo vložky: ${p.cislo_vlozky} · osoby: ${d.persons.length} · firmy: ${d.companies.length}`;
+  const body = $('#r-body'); clear(body);
+
+  if(d.companies.length){
+    body.appendChild(tag('h4', null, ['Subjekty (PVS / OO)']));
+    for(const c of d.companies){
+      body.appendChild(tag('div',{class:'item'}, [
+        tag('span',{class:'role'},[c.role]),
+        tag('b', null, [c.obchodne_meno || '?']),
+        document.createTextNode(' · IČO '+(c.ico || '?')),
+        tag('div',{class:'meta'}, [
+          (c.forma_osoby || '') + ' · ' +
+          (c.platnost_od ? c.platnost_od.slice(0,10) : '?') + ' → ' +
+          (c.platnost_do ? c.platnost_do.slice(0,10) : '…')
+        ]),
+      ]));
+    }
+  }
+  if(d.persons.length){
+    body.appendChild(tag('h4', null, ['Osoby (KÚV / VF)']));
+    for(const pe of d.persons){
+      const name = [pe.titul_pred, pe.meno, pe.priezvisko, pe.titul_za].filter(Boolean).join(' ') || '(?)';
+      const item = tag('div',{class:'item'+(pe.je_verejny_cinitel ? ' pep' : '')}, [
+        tag('span',{class:'role'},[pe.role]),
+        tag('b', null, [name]),
+      ]);
+      if(pe.je_verejny_cinitel){
+        item.appendChild(document.createTextNode(' '));
+        item.appendChild(tag('span',{style:'color:var(--warn);font-weight:600;font-size:11px'},['⚠ PEP']));
+      }
+      item.appendChild(tag('div',{class:'meta'},[
+        'dátum nar.: '+(pe.datum_narodenia ? pe.datum_narodenia.slice(0,10) : '?')
+      ]));
+      body.appendChild(item);
+    }
+  }
+}
+
+function renderGraph(g, focusPid){
+  cy.elements().remove();
+  cy.add(g.nodes); cy.add(g.edges);
+  cy.layout({ name:'cose', animate:false, idealEdgeLength:90, nodeOverlap:20 }).run();
+  const focus = cy.getElementById('P:'+focusPid);
+  if(focus.length){ cy.fit(focus.closedNeighborhood(), 60); cy.center(focus); focus.select(); }
+}
+
+$('#depth1').onclick = () => { depth=1; $('#depth1').classList.add('on'); $('#depth2').classList.remove('on'); if(currentPartnerId) loadPartner(currentPartnerId); };
+$('#depth2').onclick = () => { depth=2; $('#depth2').classList.add('on'); $('#depth1').classList.remove('on'); if(currentPartnerId) loadPartner(currentPartnerId); };
+$('#fit').onclick = () => cy.fit(null, 40);
+
+$('#r-ai').onclick = async () => {
+  if(!currentPartnerId) return;
+  const btn = $('#r-ai'), out = $('#r-out');
+  btn.disabled = true; btn.textContent = '🧠 generujem zhrnutie…';
+  out.style.display = 'block'; out.textContent = '…';
+  try{
+    const r = await (await fetch('/summary/'+currentPartnerId, {method:'POST'})).json();
+    let txt = r.summary || r.error || '(prázdna odpoveď)';
+    if(r.source && r.source !== 'claude-cli') txt = '['+r.source+']\n\n'+txt;
+    out.textContent = txt;  // textContent — XSS-safe
+  }catch(e){ out.textContent = 'chyba: '+e.message; }
+  btn.disabled = false; btn.textContent = '🧠 AI rizikové zhrnutie';
+};
+
+initCy();
+loadStats();
+</script>
+</body>
+</html>
